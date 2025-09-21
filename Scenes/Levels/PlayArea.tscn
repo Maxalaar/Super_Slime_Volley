@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://cu00eb54h02i4"]
+
+[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="1_qvnfi"]
+[ext_resource type="Script" uid="uid://b4t2c8j02mp2w" path="res://Scripts/slime.gd" id="2_jdpsq"]
+[ext_resource type="Script" uid="uid://bqq1c77i3e0fk" path="res://Scripts/ball.gd" id="2_w3g2i"]
+[ext_resource type="Script" uid="uid://0hnx7x0646ka" path="res://Scripts/slime_ai_controller.gd" id="4_crlpk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jdpsq"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvnfi"]
+radius = 22.090721
+
+[sub_resource type="Gradient" id="Gradient_jdpsq"]
+offsets = PackedFloat32Array(0.23809524, 0.24404761)
+colors = PackedColorArray(0.9999998, 0.6279302, 0.14412293, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3g2i"]
+gradient = SubResource("Gradient_jdpsq")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_jdpsq"]
+points = PackedVector2Array(50, 0, 49.38442, -7.8217235, 47.552826, -15.45085, 44.550327, -22.699526, 40.45085, -29.389263, 35.35534, -35.35534, 29.389263, -40.45085, 22.699526, -44.550327, 15.45085, -47.552826, 7.8217235, -49.38442, 3.0615159e-15, -50, -7.8217235, -49.38442, -15.45085, -47.552826, -22.699526, -44.550327, -29.389263, -40.45085, -35.35534, -35.35534, -40.45085, -29.389263, -44.550327, -22.699526, -47.552826, -15.45085, -49.38442, -7.8217235, -50, -6.1230318e-15)
+
+[node name="PlayArea" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("1_qvnfi")]
+position = Vector2(-60, 372)
+scale = Vector2(8.520002, 50)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("1_qvnfi")]
+position = Vector2(1227, 381)
+scale = Vector2(9.76, 50)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("1_qvnfi")]
+position = Vector2(568, -64.99999)
+scale = Vector2(70, 9.16)
+
+[node name="Wall4" parent="Walls" groups=["ground"] instance=ExtResource("1_qvnfi")]
+position = Vector2(568, 726.00006)
+scale = Vector2(70, 10.640001)
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(556, 274)
+collision_layer = 2
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_jdpsq")
+script = ExtResource("2_w3g2i")
+max_speed = 800.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_qvnfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D"]
+texture = SubResource("GradientTexture2D_w3g2i")
+
+[node name="Slime" type="CharacterBody2D" parent="." node_paths=PackedStringArray("ai_controller")]
+position = Vector2(572, 620)
+script = ExtResource("2_jdpsq")
+speed = 500.0
+ai_controller = NodePath("AIController2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime"]
+shape = SubResource("ConvexPolygonShape2D_jdpsq")
+
+[node name="Polygon2D" type="Polygon2D" parent="Slime"]
+color = Color(0.5858467, 1.8049031e-06, 4.3317675e-07, 1)
+polygon = PackedVector2Array(50, 0, 49.38442, -7.8217235, 47.552826, -15.45085, 44.550327, -22.699526, 40.45085, -29.389263, 35.35534, -35.35534, 29.389263, -40.45085, 22.699526, -44.550327, 15.45085, -47.552826, 7.8217235, -49.38442, 3.0615159e-15, -50, -7.8217235, -49.38442, -15.45085, -47.552826, -22.699526, -44.550327, -29.389263, -40.45085, -35.35534, -35.35534, -40.45085, -29.389263, -44.550327, -22.699526, -47.552826, -15.45085, -49.38442, -7.8217235, -50, -6.1230318e-15)
+
+[node name="AIController2D" type="Node2D" parent="Slime" node_paths=PackedStringArray("ball")]
+script = ExtResource("4_crlpk")
+ball = NodePath("../../Ball")
+metadata/_custom_type_script = "uid://gs021hdueapq"
