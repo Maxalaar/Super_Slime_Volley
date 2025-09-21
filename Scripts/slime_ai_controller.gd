@@ -21,9 +21,9 @@ func get_obs() -> Dictionary:
 		player_velocity.x,\
 		player_velocity.y,\
 		ball_position.x,\
-		ball_position.z,\
+		ball_position.y,\
 		ball_velocity.x,\
-		ball_velocity.z,\
+		ball_velocity.y,\
 		]
 	
 	return { "obs" : obs }
