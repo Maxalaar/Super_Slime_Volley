@@ -5,6 +5,8 @@ class_name Slime
 @export var push_force : float = 80
 @export var jump_force : float = 500
 
+@export var spawn_offset_percent_x : float = 0.1
+
 @export_group("Collision Shape")
 @export var collision_shape : CollisionShape2D
 @export var collision_scale_factor : float
@@ -40,10 +42,12 @@ func generate_collision_shape():
 	polygon_2d.color = color
 #endregion
 
+func _init() -> void:
+	SignalManager.game_over.connect(_on_game_over)
+	SignalManager.reset_play_area.connect(_on_reset_play_area)
+
 func _ready() -> void:
 	ai_controller.init(self)
-	
-	PlayArea.game_over.connect(_on_game_over)
 	initial_position = global_position
 
 func _process(delta: float) -> void:
@@ -95,5 +99,9 @@ func on_ball_touched():
 func _on_game_over():
 	ai_controller.done = true
 	ai_controller.reset()
+
+func _on_reset_play_area(width : float, height : float):
+	initial_position.x = width * randf_range(-(spawn_offset_percent_x / 2), (spawn_offset_percent_x / 2))
+	initial_position.y = height / 2
 	velocity = Vector2.ZERO
 	global_position = initial_position

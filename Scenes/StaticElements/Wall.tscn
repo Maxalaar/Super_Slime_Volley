@@ -3,6 +3,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jgoa1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3tm5"]
+size = Vector2(2, 2)
 
 [node name="Wall" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_jgoa1")
@@ -12,5 +13,5 @@ shape = SubResource("RectangleShape2D_f3tm5")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 uv = PackedVector2Array(432, -39.999996, 480, -39.999996, 480, -7.9999924, 432, -7.9999924)
