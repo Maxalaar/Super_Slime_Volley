@@ -46,8 +46,27 @@ func get_action_space() -> Dictionary:
 			"action_type" : "continuous"
 		},
 	}
+	
+	#return {
+		#"move_left_action" : {
+			#"size" : 2,
+			#"action_type" : "discrete"
+		#},
+		#"move_right_action" : {
+			#"size" : 2,
+			#"action_type" : "discrete"
+		#},
+		#"jump_action" : {
+			#"size" : 2,
+			#"action_type" : "discrete"
+		#},
+	#}
 
 func set_action(action) -> void:
 	move_left_action = action["move_left_action"][0] > 0
 	move_right_action = action["move_right_action"][0] > 0
 	jump_action = action["jump_action"][0] > 0
+	
+	#move_left_action = action["move_left_action"][0]
+	#move_right_action = action["move_right_action"][0]
+	#jump_action = action["jump_action"][0]
