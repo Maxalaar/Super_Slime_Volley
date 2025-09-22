@@ -7,23 +7,26 @@ var move_right_action : bool = false
 var jump_action : bool = false
 
 @export var ball : Ball
+@export var play_area : PlayArea
 
 func get_obs() -> Dictionary:
-	var player_position = _player.global_position
-	var player_velocity = _player.velocity
+	var slime : Slime = _player as Slime
+	
+	var slime_position = _player.global_position
+	var slime_velocity = _player.velocity
 	
 	var ball_position = to_local(ball.global_position)
 	var ball_velocity = to_local(ball.linear_velocity)
 	
 	var obs = [\
-		player_position.x / 2000,\
-		player_position.y / 2000,\
-		player_velocity.x / 2000,\
-		player_velocity.y / 2000,\
-		ball_position.x / 2000,\
-		ball_position.y / 2000,\
-		ball_velocity.x / 2000,\
-		ball_velocity.y / 2000,\
+		slime_position.x / (play_area.level_width / 2),\
+		slime_position.y / (play_area.level_width / 2),\
+		slime_velocity.x / slime.speed,\
+		slime_velocity.y / slime.jump_force,\
+		ball_position.x / (play_area.level_width / 2),\
+		ball_position.y / (play_area.level_width / 2),\
+		ball_velocity.x / ball.max_speed,\
+		ball_velocity.y / ball.max_speed,\
 		]
 	
 	return { "obs" : obs }

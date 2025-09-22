@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name Slime
 
 @export var speed : float = 10
-@export var push_force : float = 80
 @export var jump_force : float = 500
 
 @export var spawn_offset_percent_x : float = 0.1
