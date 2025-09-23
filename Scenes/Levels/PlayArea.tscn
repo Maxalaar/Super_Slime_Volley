@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu00eb54h02i4"]
+[gd_scene load_steps=11 format=3 uid="uid://cu00eb54h02i4"]
 
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_0aman"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="1_07538"]
 [ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="1_qvnfi"]
+[ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="2_g1o54"]
 [ext_resource type="Script" uid="uid://b4t2c8j02mp2w" path="res://Scripts/slime.gd" id="2_jdpsq"]
 [ext_resource type="Script" uid="uid://bqq1c77i3e0fk" path="res://Scripts/ball.gd" id="2_w3g2i"]
 [ext_resource type="Script" uid="uid://0hnx7x0646ka" path="res://Scripts/slime_ai_controller.gd" id="4_crlpk"]
@@ -25,6 +26,11 @@ wall_left = NodePath("Walls/WallLeft")
 wall_right = NodePath("Walls/WallRight")
 roof = NodePath("Walls/Roof")
 ground = NodePath("Walls/Ground")
+
+[node name="DebugManager" type="Node" parent="."]
+script = ExtResource("2_g1o54")
+is_debug_mode = false
+metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("1_07538")

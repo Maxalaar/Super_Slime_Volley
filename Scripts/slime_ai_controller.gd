@@ -9,6 +9,23 @@ var jump_action : bool = false
 @export var ball : Ball
 @export var play_area : PlayArea
 
+var is_debug_mode : bool = false
+
+func _init() -> void:
+	SignalManager.debug_mode_start.connect(_on_debug_mode_start)
+
+func _on_debug_mode_start():
+	is_debug_mode = true
+
+func _process(delta: float) -> void:
+	if is_debug_mode == true:
+		var obs_values : Dictionary = get_obs()
+		print(obs_values)
+		
+		for value in obs_values["obs"]:
+			if value < -1 || value > 1:
+				printerr("Value not between -1 and 1 !")
+
 func get_obs() -> Dictionary:
 	var slime : Slime = _player as Slime
 	
@@ -31,8 +48,6 @@ func get_obs() -> Dictionary:
 		ball_velocity.x / ball.max_speed,\
 		ball_velocity.y / ball.max_speed,\
 		]
-		
-	#print(obs)
 	
 	return { "obs" : obs }
 
