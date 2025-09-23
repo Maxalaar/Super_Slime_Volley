@@ -43,7 +43,7 @@ func generate_collision_shape():
 
 func _init() -> void:
 	SignalManager.game_over.connect(_on_game_over)
-	SignalManager.reset_play_area.connect(_on_reset_play_area)
+	SignalManager.reset_game.connect(_on_reset_game)
 
 func _ready() -> void:
 	ai_controller.init(self)
@@ -94,12 +94,13 @@ func jump():
 
 func on_ball_touched():
 	ai_controller.reward += 1
+	SignalManager.emit_point_scored()
 
 func _on_game_over():
 	ai_controller.done = true
 	ai_controller.reset()
 
-func _on_reset_play_area(width : float, height : float):
+func _on_reset_game(width : float, height : float):
 	initial_position.x = width * randf_range(-(spawn_offset_percent_x / 2), (spawn_offset_percent_x / 2))
 	initial_position.y = height / 2
 	velocity = Vector2.ZERO

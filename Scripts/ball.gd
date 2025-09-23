@@ -38,7 +38,7 @@ func generate_collision_shape():
 
 func _init() -> void:
 	SignalManager.game_over.connect(_on_game_over)
-	SignalManager.reset_play_area.connect(_on_reset_play_area)
+	SignalManager.reset_game.connect(_on_reset_game)
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -66,7 +66,7 @@ func _on_body_entered(body : Node):
 func _on_game_over():
 	pass
 
-func _on_reset_play_area(width : float, height : float):
+func _on_reset_game(width : float, height : float):
 	initial_position.x = width * randf_range(-(spawn_offset_percent_x / 2), (spawn_offset_percent_x / 2))
 	initial_position.y = -height / 2 + randf_range(0, spawn_offset_percent_y * height)
 	global_position = initial_position

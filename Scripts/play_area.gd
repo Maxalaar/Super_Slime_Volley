@@ -15,10 +15,10 @@ class_name PlayArea
 
 func _ready() -> void:
 	SignalManager.game_over.connect(_on_game_over)
-	SignalManager.emit_reset_play_area(level_width, level_height)
+	SignalManager.emit_reset_game(level_width, level_height)
 
 func _on_game_over():
-	SignalManager.emit_reset_play_area(level_width, level_height)
+	SignalManager.emit_reset_game(level_width, level_height)
 
 func generate_play_area():
 	wall_left.scale = Vector2(wall_width, level_height)
