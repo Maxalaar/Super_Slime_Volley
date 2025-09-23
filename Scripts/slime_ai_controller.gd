@@ -15,19 +15,24 @@ func get_obs() -> Dictionary:
 	var slime_position = _player.global_position
 	var slime_velocity = _player.velocity
 	
-	var ball_position = to_local(ball.global_position)
-	var ball_velocity = to_local(ball.linear_velocity)
+	var ball_position = ball.global_position
+	var to_local_ball_position = to_local(ball.global_position)
+	var ball_velocity = ball.linear_velocity
 	
 	var obs = [\
-		slime_position.x / (play_area.level_width / 2),\
-		slime_position.y / (play_area.level_width / 2),\
+		slime_position.x / (play_area.level_width),\
+		slime_position.y / (play_area.level_width),\
 		slime_velocity.x / slime.speed,\
 		slime_velocity.y / slime.jump_force,\
-		ball_position.x / (play_area.level_width / 2),\
-		ball_position.y / (play_area.level_width / 2),\
+		ball_position.x / (play_area.level_width),\
+		ball_position.y / (play_area.level_width),\
+		to_local_ball_position.y / (play_area.level_width),\
+		to_local_ball_position.x / (play_area.level_width),\
 		ball_velocity.x / ball.max_speed,\
 		ball_velocity.y / ball.max_speed,\
 		]
+		
+	#print(obs)
 	
 	return { "obs" : obs }
 

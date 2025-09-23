@@ -20,6 +20,7 @@ points = PackedVector2Array(50, 0, 49.38442, -7.8217235, 47.552826, -15.45085, 4
 script = ExtResource("1_0aman")
 level_width = 1152.0
 level_height = 648.0
+wall_width = 200.0
 wall_left = NodePath("Walls/WallLeft")
 wall_right = NodePath("Walls/WallRight")
 roof = NodePath("Walls/Roof")
@@ -27,7 +28,6 @@ ground = NodePath("Walls/Ground")
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("1_07538")
-control_mode = 0
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -35,23 +35,23 @@ metadata/_custom_type_script = "uid://d1gfr0v445v25"
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="WallLeft" parent="Walls" instance=ExtResource("1_qvnfi")]
-position = Vector2(-586, 0)
-scale = Vector2(10, 648)
+position = Vector2(-776, 0)
+scale = Vector2(200, 648)
 
 [node name="WallRight" parent="Walls" instance=ExtResource("1_qvnfi")]
-position = Vector2(586, 0)
-scale = Vector2(10, 648)
+position = Vector2(776, 0)
+scale = Vector2(200, 648)
 
 [node name="Roof" parent="Walls" instance=ExtResource("1_qvnfi")]
-position = Vector2(0, -334)
-scale = Vector2(1152, 10)
+position = Vector2(0, -524)
+scale = Vector2(1152, 200)
 
 [node name="Ground" parent="Walls" groups=["ground"] instance=ExtResource("1_qvnfi")]
-position = Vector2(0, 334)
-scale = Vector2(1152, 10)
+position = Vector2(0, 524)
+scale = Vector2(1152, 200)
 
 [node name="Ball" type="RigidBody2D" parent="." node_paths=PackedStringArray("collision_shape", "polygon_2d")]
-position = Vector2(663, -137)
+position = Vector2(1377, -212)
 collision_layer = 2
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_jdpsq")
@@ -59,7 +59,7 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("2_w3g2i")
 max_speed = 800.0
-spawn_offset_percent_x = 0.2
+spawn_offset_percent_x = 0.45
 spawn_offset_percent_y = 0.2
 collision_shape = NodePath("CollisionShape2D")
 collision_scale_factor = 15.0
@@ -75,7 +75,7 @@ color = Color(0.8509804, 0.5529412, 0, 1)
 polygon = PackedVector2Array(15, 0, 14.815325, -2.346517, 14.265848, -4.635255, 13.365098, -6.8098574, 12.135255, -8.816779, 10.606602, -10.606602, 8.816779, -12.135255, 6.8098574, -13.365098, 4.635255, -14.265848, 2.346517, -14.815325, 9.184548e-16, -15, -2.346517, -14.815325, -4.635255, -14.265848, -6.8098574, -13.365098, -8.816779, -12.135255, -10.606602, -10.606602, -12.135255, -8.816779, -13.365098, -6.8098574, -14.265848, -4.635255, -14.815325, -2.346517, -15, -1.8369095e-15, -14.815325, 2.346517, -14.265848, 4.635255, -13.365098, 6.8098574, -12.135255, 8.816779, -10.606602, 10.606602, -8.816779, 12.135255, -6.8098574, 13.365098, -4.635255, 14.265848, -2.346517, 14.815325, -2.7553643e-15, 15, 2.346517, 14.815325, 4.635255, 14.265848, 6.8098574, 13.365098, 8.816779, 12.135255, 10.606602, 10.606602, 12.135255, 8.816779, 13.365098, 6.8098574, 14.265848, 4.635255, 14.815325, 2.346517, 15, 3.673819e-15)
 
 [node name="Slime" type="CharacterBody2D" parent="." node_paths=PackedStringArray("ai_controller")]
-position = Vector2(-683, 321)
+position = Vector2(-1075, 205)
 script = ExtResource("2_jdpsq")
 speed = 500.0
 spawn_offset_percent_x = 0.2
