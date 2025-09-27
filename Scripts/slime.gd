@@ -22,6 +22,7 @@ var is_on_ground : bool = false
 var initial_position : Vector2
 var team : Team
 var current_ball_touch_number : int = 0
+var play_area : PlayArea
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -100,8 +101,6 @@ func jump():
 	velocity.y = -jump_force
 
 func on_ball_touched(ball : Ball):
-	ai_controller.reward += 1
-	
 	current_ball_touch_number += 1
 	update_transparency()
 	if current_ball_touch_number >= maximum_ball_touch_number:
@@ -128,3 +127,26 @@ func _on_reset_game(width : float, height : float):
 
 func _on_ball_hit_different_team():
 	reset_ball_touch()
+
+func get_ai_information() -> Array:
+	var slime_position = global_position
+	var slime_velocity = velocity
+	
+	var ball_position = play_area.ball.global_position
+	var to_local_ball_position = to_local(play_area.ball.global_position)
+	var ball_velocity = play_area.ball.linear_velocity
+	
+	return [\
+		slime_position.x / (play_area.level_width),\
+		slime_position.y / (play_area.level_height),\
+		slime_velocity.x / speed,\
+		slime_velocity.y / jump_force,\
+		ball_position.x / (play_area.level_width),\
+		ball_position.y / (play_area.level_height),\
+		to_local_ball_position.x / (play_area.level_width),\
+		to_local_ball_position.y / (play_area.level_height),\
+		ball_velocity.x / play_area.ball.max_speed,\
+		ball_velocity.y / play_area.ball.max_speed,\
+		float(current_ball_touch_number) / float(maximum_ball_touch_number),\
+		float(play_area.team_list.find(team)) / float(play_area.team_list.size()),\
+		]

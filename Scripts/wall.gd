@@ -12,4 +12,4 @@ func _ready() -> void:
 
 func _on_ball_hit_ground(ground : Wall):
 	if ground == self:
-		ground.team.score_point()
+		ground.team.opponents_score_point()

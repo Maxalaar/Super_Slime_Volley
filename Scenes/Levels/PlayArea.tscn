@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://4qo0vk614yt7"]
+
+[ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_5q6f0"]
+[ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/team.gd" id="2_qnc68"]
+[ext_resource type="PackedScene" uid="uid://d4kvpjd744jam" path="res://Scenes/Characters/Slime.tscn" id="3_5fajs"]
+[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="4_8bkyc"]
+[ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/StaticElements/Net.tscn" id="5_ov7pv"]
+[ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="6_7qqmr"]
+[ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="7_5mlxi"]
+[ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/MovingElements/Ball.tscn" id="8_tiel4"]
+[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/score.gd" id="9_ph36x"]
+
+[sub_resource type="Resource" id="Resource_aoj3m"]
+script = ExtResource("2_qnc68")
+slime_number = 1
+color = Color(0.5333242, 1.0949746e-06, 2.8878452e-07, 1)
+name = "Left"
+metadata/_custom_type_script = "uid://clyb11d4b2uxu"
+
+[sub_resource type="Resource" id="Resource_6cl5q"]
+script = ExtResource("2_qnc68")
+slime_number = 1
+color = Color(2.7915835e-06, 0, 0.67593414, 1)
+name = "Right"
+metadata/_custom_type_script = "uid://clyb11d4b2uxu"
+
+[node name="PlayArea" type="Node2D" node_paths=PackedStringArray("ball", "score", "walls_container", "wall_left", "wall_right", "roof")]
+script = ExtResource("1_5q6f0")
+ball = NodePath("Ball")
+score = NodePath("CanvasLayer/ScoreLabel")
+team_list = Array[ExtResource("2_qnc68")]([SubResource("Resource_aoj3m"), SubResource("Resource_6cl5q")])
+slime_scene = ExtResource("3_5fajs")
+level_width = 1152.0
+level_height = 648.0
+wall_width = 200.0
+net_height = 50.0
+walls_container = NodePath("WallsContainer")
+wall_left = NodePath("WallsContainer/WallLeft")
+wall_right = NodePath("WallsContainer/WallRight")
+roof = NodePath("WallsContainer/Roof")
+ground_scene = ExtResource("4_8bkyc")
+net_scene = ExtResource("5_ov7pv")
+
+[node name="DebugManager" type="Node" parent="."]
+script = ExtResource("6_7qqmr")
+is_debug_mode = false
+metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("7_5mlxi")
+metadata/_custom_type_script = "uid://d1gfr0v445v25"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WallsContainer" type="Node2D" parent="."]
+
+[node name="WallLeft" parent="WallsContainer" instance=ExtResource("4_8bkyc")]
+position = Vector2(-776, 0)
+scale = Vector2(200, 648)
+
+[node name="WallRight" parent="WallsContainer" instance=ExtResource("4_8bkyc")]
+position = Vector2(776, 0)
+scale = Vector2(200, 648)
+
+[node name="Roof" parent="WallsContainer" instance=ExtResource("4_8bkyc")]
+position = Vector2(0, -524)
+scale = Vector2(1152, 200)
+
+[node name="Ball" parent="." instance=ExtResource("8_tiel4")]
+position = Vector2(1377, -212)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 69.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Score"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_ph36x")

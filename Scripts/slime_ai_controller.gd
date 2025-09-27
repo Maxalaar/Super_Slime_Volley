@@ -6,9 +6,6 @@ var move_left_action : bool = false
 var move_right_action : bool = false
 var jump_action : bool = false
 
-var ball : Ball
-var play_area : PlayArea
-
 var is_debug_mode : bool = false
 
 func _init() -> void:
@@ -18,7 +15,7 @@ func _on_debug_mode_start():
 	is_debug_mode = true
 
 func _process(delta: float) -> void:
-	if is_debug_mode == true:
+	if is_debug_mode == true || DebugManager.is_debug_started == true:
 		var obs_values : Dictionary = get_obs()
 		print(obs_values)
 		
@@ -29,25 +26,16 @@ func _process(delta: float) -> void:
 func get_obs() -> Dictionary:
 	var slime : Slime = _player as Slime
 	
-	var slime_position = _player.global_position
-	var slime_velocity = _player.velocity
+	var obs : Array = slime.get_ai_information()
 	
-	var ball_position = ball.global_position
-	var to_local_ball_position = to_local(ball.global_position)
-	var ball_velocity = ball.linear_velocity
+	for team_slime : Slime in slime.team.slime_list:
+		if team_slime != slime:
+			obs.append_array(team_slime.get_ai_information())
 	
-	var obs = [\
-		slime_position.x / (play_area.level_width),\
-		slime_position.y / (play_area.level_height),\
-		slime_velocity.x / slime.speed,\
-		slime_velocity.y / slime.jump_force,\
-		ball_position.x / (play_area.level_width),\
-		ball_position.y / (play_area.level_height),\
-		to_local_ball_position.x / (play_area.level_width),\
-		to_local_ball_position.y / (play_area.level_height),\
-		ball_velocity.x / ball.max_speed,\
-		ball_velocity.y / ball.max_speed,\
-		]
+	for team : Team in slime.play_area.team_list:
+		if team != slime.team:
+			for other_slime : Slime in team.slime_list:
+				obs.append_array(other_slime.get_ai_information())
 	
 	return { "obs" : obs }
 

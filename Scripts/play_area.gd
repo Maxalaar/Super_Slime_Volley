@@ -48,7 +48,7 @@ func _on_game_over():
 	SignalManager.emit_reset_game(level_width, level_height)
 	score.update_score()
 
-func _on_point_scored():
+func _on_point_scored(team : Team):
 	SignalManager.emit_reset_game(level_width, level_height)
 	score.update_score()
 
@@ -99,6 +99,4 @@ func spawn_slimes():
 			team.slime_list.append(slime)
 			add_child(slime)
 			slime.polygon_2d.color = team.color
-			
-			slime.ai_controller.ball = ball
-			slime.ai_controller.play_area = self
+			slime.play_area = self
