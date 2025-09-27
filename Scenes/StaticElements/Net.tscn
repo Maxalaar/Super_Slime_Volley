@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ko5rb3a3wf71"]
+
+[ext_resource type="Script" uid="uid://t7d37hns1flk" path="res://Scripts/wall.gd" id="1_8gsga"]
+[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="2_xtwcn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jgoa1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3tm5"]
+size = Vector2(2, 2)
+
+[node name="Net" type="StaticBody2D" node_paths=PackedStringArray("collision_shape_2d", "polygon_2d")]
+scale = Vector2(10, 100)
+collision_layer = 8
+physics_material_override = SubResource("PhysicsMaterial_jgoa1")
+script = ExtResource("1_8gsga")
+collision_shape_2d = NodePath("CollisionShape2D")
+polygon_2d = NodePath("Polygon2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f3tm5")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.2015267, 0.20152655, 0.20152652, 1)
+polygon = PackedVector2Array(-1, -1.0000005, -0.8, -1.0000005, 1, -1, 1, 1, -1, 1, -1.0000002, -0.98529303)
+uv = PackedVector2Array(432, -39.999996, 480, -39.999996, 480, -7.9999924, 432, -7.9999924)
+
+[node name="WallTeamSplitter" parent="." instance=ExtResource("2_xtwcn")]
+position = Vector2(0, -3.1200006)
+scale = Vector2(1, 10.000001)
+collision_layer = 4
+
+[node name="Polygon2D" parent="WallTeamSplitter" index="1"]
+color = Color(0, 0, 0, 0)
+
+[editable path="WallTeamSplitter"]

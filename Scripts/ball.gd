@@ -60,8 +60,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _on_body_entered(body : Node):
 	if body is Slime:
 		body.on_ball_touched()
-	elif body.is_in_group("ground"):
-		SignalManager.emit_game_over()
+	elif body.is_in_group("ground") && body is Wall:
+		SignalManager.emit_ball_hit_ground(body as Wall)
 
 func _on_game_over():
 	pass

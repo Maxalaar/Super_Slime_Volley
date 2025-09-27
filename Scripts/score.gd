@@ -1,17 +1,29 @@
-extends Label
+extends RichTextLabel
 class_name Score
 
 var fixed_text : String = "Score : "
-var score : int = 0
+var team_list : Array[Team]
 
 func _init() -> void:
-	SignalManager.point_scored.connect(_on_point_scored)
-	SignalManager.reset_game.connect(_on_reset_game)
+	SignalManager.game_over.connect(_on_game_over)
 
-func _on_point_scored():
-	score += 1
-	text = fixed_text + str(score)
+func set_team_list(list : Array[Team]):
+	team_list = list
+	update_score()
 
-func _on_reset_game(width : float, height : float):
-	score = 0
-	text = fixed_text + str(score)
+func _on_game_over(width : float, height : float):
+	text = fixed_text
+	for i in team_list.size():
+		if i > 0:
+			text += " -"
+		
+		text += " 0"
+
+func update_score():
+	text = fixed_text
+	for i in team_list.size():
+		var team : Team = team_list[i]
+		if i > 0:
+			text += " -"
+		
+		text += " " + str(team.score)

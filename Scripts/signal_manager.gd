@@ -4,6 +4,7 @@ signal game_over
 signal reset_game
 signal debug_mode_start
 signal point_scored
+signal ball_hit_ground
 
 func emit_game_over():
 	game_over.emit()
@@ -16,3 +17,6 @@ func emit_debug_mode_start():
 
 func emit_point_scored():
 	point_scored.emit()
+
+func emit_ball_hit_ground(ground : Wall):
+	ball_hit_ground.emit(ground)

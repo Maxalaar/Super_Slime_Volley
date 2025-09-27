@@ -6,8 +6,8 @@ var move_left_action : bool = false
 var move_right_action : bool = false
 var jump_action : bool = false
 
-@export var ball : Ball
-@export var play_area : PlayArea
+var ball : Ball
+var play_area : PlayArea
 
 var is_debug_mode : bool = false
 
@@ -38,13 +38,13 @@ func get_obs() -> Dictionary:
 	
 	var obs = [\
 		slime_position.x / (play_area.level_width),\
-		slime_position.y / (play_area.level_width),\
+		slime_position.y / (play_area.level_height),\
 		slime_velocity.x / slime.speed,\
 		slime_velocity.y / slime.jump_force,\
 		ball_position.x / (play_area.level_width),\
-		ball_position.y / (play_area.level_width),\
-		to_local_ball_position.y / (play_area.level_width),\
+		ball_position.y / (play_area.level_height),\
 		to_local_ball_position.x / (play_area.level_width),\
+		to_local_ball_position.y / (play_area.level_height),\
 		ball_velocity.x / ball.max_speed,\
 		ball_velocity.y / ball.max_speed,\
 		]

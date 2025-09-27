@@ -8,7 +8,7 @@ class_name Slime
 
 @export_group("Collision Shape")
 @export var collision_shape : CollisionShape2D
-@export var collision_scale_factor : float
+@export var size : float
 @export var collision_points_number : int
 @export var color : Color
 @export var polygon_2d : Polygon2D
@@ -18,8 +18,10 @@ class_name Slime
 
 var is_on_ground : bool = false
 var initial_position : Vector2
+var team : Team
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 #region Collision Shape
 #@export_tool_button("Generate Collision Shape") var gen_coll = generate_collision_shape
@@ -29,8 +31,8 @@ func generate_collision_shape():
 	for i in collision_points_number + 1:
 		var point_position : Vector2
 		var angle : float = -PI * (float(i) / float(collision_points_number))
-		point_position.x = collision_scale_factor * cos(angle)
-		point_position.y = collision_scale_factor * sin(angle)
+		point_position.x = size * cos(angle)
+		point_position.y = size * sin(angle)
 		points.append(point_position)
 	
 	var shape : ConvexPolygonShape2D = ConvexPolygonShape2D.new()
@@ -46,6 +48,8 @@ func _init() -> void:
 	SignalManager.reset_game.connect(_on_reset_game)
 
 func _ready() -> void:
+	generate_collision_shape()
+	
 	ai_controller.init(self)
 	initial_position = global_position
 
@@ -94,14 +98,14 @@ func jump():
 
 func on_ball_touched():
 	ai_controller.reward += 1
-	SignalManager.emit_point_scored()
 
 func _on_game_over():
 	ai_controller.done = true
 	ai_controller.reset()
 
 func _on_reset_game(width : float, height : float):
-	initial_position.x = width * randf_range(-(spawn_offset_percent_x / 2), (spawn_offset_percent_x / 2))
+	var random_factor : float = randf_range(-1, 1)
+	initial_position.x = team.ground.global_position.x + random_factor * 2 * team.ground.scale.x * (spawn_offset_percent_x / 2) - (sign(random_factor) * size)
 	initial_position.y = height / 2
 	velocity = Vector2.ZERO
 	global_position = initial_position
