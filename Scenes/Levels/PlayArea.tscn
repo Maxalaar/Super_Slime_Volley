@@ -66,7 +66,7 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("2_w3g2i")
 max_speed = 800.0
-spawn_offset_percent_x = 0.45
+spawn_offset_percent_x = 1.0
 spawn_offset_percent_y = 0.2
 collision_shape = NodePath("CollisionShape2D")
 collision_scale_factor = 15.0
@@ -85,7 +85,7 @@ polygon = PackedVector2Array(15, 0, 14.815325, -2.346517, 14.265848, -4.635255, 
 position = Vector2(-1075, 205)
 script = ExtResource("2_jdpsq")
 speed = 500.0
-spawn_offset_percent_x = 0.2
+spawn_offset_percent_x = 0.35
 ai_controller = NodePath("AIController2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slime"]

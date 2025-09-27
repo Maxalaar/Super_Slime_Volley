@@ -55,41 +55,66 @@ func get_reward() -> float:
 	return reward
 
 func get_action_space() -> Dictionary:
+	#return {
+		#"move_left_action" : {
+			#"size" : 1,
+			#"action_type" : "continuous"
+		#},
+		#"move_right_action" : {
+			#"size" : 1,
+			#"action_type" : "continuous"
+		#},
+		#"jump_action" : {
+			#"size" : 1,
+			#"action_type" : "continuous"
+		#},
+	#}
+	
 	return {
 		"move_left_action" : {
-			"size" : 1,
-			"action_type" : "continuous"
+			"size" : 2,
+			"action_type" : "discrete"
 		},
 		"move_right_action" : {
-			"size" : 1,
-			"action_type" : "continuous"
+			"size" : 2,
+			"action_type" : "discrete"
 		},
 		"jump_action" : {
-			"size" : 1,
-			"action_type" : "continuous"
+			"size" : 2,
+			"action_type" : "discrete"
 		},
 	}
 	
 	#return {
-		#"move_left_action" : {
-			#"size" : 2,
-			#"action_type" : "discrete"
-		#},
-		#"move_right_action" : {
-			#"size" : 2,
-			#"action_type" : "discrete"
-		#},
-		#"jump_action" : {
-			#"size" : 2,
+		#"action" : {
+			#"size" : 4,
 			#"action_type" : "discrete"
 		#},
 	#}
 
 func set_action(action) -> void:
-	move_left_action = action["move_left_action"][0] > 0
-	move_right_action = action["move_right_action"][0] > 0
-	jump_action = action["jump_action"][0] > 0
+	#if action["action"][0] == true:
+		#move_left_action = false
+		#move_right_action = false
+		#jump_action = false
+	#elif action["action"][1] == true:
+		#move_left_action = true
+		#move_right_action = false
+		#jump_action = false
+	#elif action["action"][2] == true:
+		#move_left_action = false
+		#move_right_action = true
+		#jump_action = false
+	#elif action["action"][2] == true:
+		#move_left_action = false
+		#move_right_action = true
+		#jump_action = false
 	
-	#move_left_action = action["move_left_action"][0]
-	#move_right_action = action["move_right_action"][0]
-	#jump_action = action["jump_action"][0]
+	
+	#move_left_action = action["move_left_action"][0] > 0
+	#move_right_action = action["move_right_action"][0] > 0
+	#jump_action = action["jump_action"][0] > 0
+	
+	move_left_action = action["move_left_action"] == 1
+	move_right_action = action["move_right_action"] == 1
+	jump_action = action["jump_action"] == 1

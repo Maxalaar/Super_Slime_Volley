@@ -51,7 +51,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if need_position_reset == true:
 		global_position = initial_position
 		var direction : Vector2 = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-		linear_velocity = max_speed * direction * randf_range(0.2, 0.4)
+		linear_velocity = max_speed * direction * randf_range(0.0, 1.0)
 		need_position_reset = false
 	
 	if linear_velocity.length() >= max_speed:
