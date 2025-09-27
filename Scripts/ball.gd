@@ -16,6 +16,8 @@ class_name Ball
 var initial_position : Vector2
 var need_position_reset : bool = false
 
+var last_slime_touched : Slime
+
 #region Collision Shape
 @export_tool_button("Generate Collision Shape") var gen_coll = generate_collision_shape
 
@@ -39,6 +41,8 @@ func generate_collision_shape():
 func _init() -> void:
 	SignalManager.game_over.connect(_on_game_over)
 	SignalManager.reset_game.connect(_on_reset_game)
+	SignalManager.slime_becomes_ignored_by_balls.connect(_on_slime_becomes_ignored_by_balls)
+	SignalManager.ball_hit_different_team.connect(_on_ball_hit_different_team)
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -53,13 +57,18 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		var direction : Vector2 = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 		linear_velocity = max_speed * direction * randf_range(0.0, 1.0)
 		need_position_reset = false
+		reset_collision_exceptions()
 	
 	if linear_velocity.length() >= max_speed:
 		linear_velocity = max_speed * linear_velocity.normalized()
 
 func _on_body_entered(body : Node):
 	if body is Slime:
-		body.on_ball_touched()
+		if last_slime_touched != null && body.team != last_slime_touched.team:
+			SignalManager.emit_ball_hit_different_team()
+		
+		body.on_ball_touched(self)
+		last_slime_touched = body as Slime
 	elif body.is_in_group("ground") && body is Wall:
 		SignalManager.emit_ball_hit_ground(body as Wall)
 
@@ -71,3 +80,13 @@ func _on_reset_game(width : float, height : float):
 	initial_position.y = -height / 2 + randf_range(0, spawn_offset_percent_y * height)
 	global_position = initial_position
 	need_position_reset = true
+
+func _on_slime_becomes_ignored_by_balls(slime : Slime):
+	add_collision_exception_with(slime)
+
+func _on_ball_hit_different_team():
+	reset_collision_exceptions()
+
+func reset_collision_exceptions():
+	for body in get_collision_exceptions():
+		remove_collision_exception_with(body)

@@ -5,6 +5,8 @@ signal reset_game
 signal debug_mode_start
 signal point_scored
 signal ball_hit_ground
+signal slime_becomes_ignored_by_balls
+signal ball_hit_different_team
 
 func emit_game_over():
 	game_over.emit()
@@ -20,3 +22,9 @@ func emit_point_scored():
 
 func emit_ball_hit_ground(ground : Wall):
 	ball_hit_ground.emit(ground)
+
+func emit_slime_becomes_ignored_by_balls(slime : Slime):
+	slime_becomes_ignored_by_balls.emit(slime)
+
+func emit_ball_hit_different_team():
+	ball_hit_different_team.emit()

@@ -3,8 +3,10 @@ class_name Slime
 
 @export var speed : float = 10
 @export var jump_force : float = 500
-
 @export var spawn_offset_percent_x : float = 0.1
+@export var maximum_ball_touch_number : int = 2
+@export_range(0, 1) var transparency_minimum : float = 0.1
+@export_range(0, 1) var transparency_maximum : float = 1
 
 @export_group("Collision Shape")
 @export var collision_shape : CollisionShape2D
@@ -19,9 +21,9 @@ class_name Slime
 var is_on_ground : bool = false
 var initial_position : Vector2
 var team : Team
+var current_ball_touch_number : int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 #region Collision Shape
 #@export_tool_button("Generate Collision Shape") var gen_coll = generate_collision_shape
@@ -46,6 +48,7 @@ func generate_collision_shape():
 func _init() -> void:
 	SignalManager.game_over.connect(_on_game_over)
 	SignalManager.reset_game.connect(_on_reset_game)
+	SignalManager.ball_hit_different_team.connect(_on_ball_hit_different_team)
 
 func _ready() -> void:
 	generate_collision_shape()
@@ -96,8 +99,20 @@ func jump():
 	
 	velocity.y = -jump_force
 
-func on_ball_touched():
+func on_ball_touched(ball : Ball):
 	ai_controller.reward += 1
+	
+	current_ball_touch_number += 1
+	update_transparency()
+	if current_ball_touch_number >= maximum_ball_touch_number:
+		SignalManager.emit_slime_becomes_ignored_by_balls(self)
+
+func reset_ball_touch():
+	current_ball_touch_number = 0
+	update_transparency()
+
+func update_transparency():
+	polygon_2d.color.a = transparency_minimum + (transparency_maximum - transparency_minimum) * (1 - float(current_ball_touch_number) / float(maximum_ball_touch_number))
 
 func _on_game_over():
 	ai_controller.done = true
@@ -109,3 +124,7 @@ func _on_reset_game(width : float, height : float):
 	initial_position.y = height / 2
 	velocity = Vector2.ZERO
 	global_position = initial_position
+	reset_ball_touch()
+
+func _on_ball_hit_different_team():
+	reset_ball_touch()

@@ -1,7 +1,7 @@
 extends RichTextLabel
 class_name Score
 
-var fixed_text : String = "Score : "
+var fixed_text : String = ""
 var team_list : Array[Team]
 
 func _init() -> void:
@@ -11,7 +11,7 @@ func set_team_list(list : Array[Team]):
 	team_list = list
 	update_score()
 
-func _on_game_over(width : float, height : float):
+func _on_game_over():
 	text = fixed_text
 	for i in team_list.size():
 		if i > 0:
@@ -27,3 +27,5 @@ func update_score():
 			text += " -"
 		
 		text += " " + str(team.score)
+		
+		#[color=#ff00ff]0[/color]

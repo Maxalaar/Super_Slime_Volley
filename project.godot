@@ -57,6 +57,13 @@ jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Slime"
+2d_physics/layer_2="Ball"
+2d_physics/layer_3="Team Splitter Wall"
+2d_physics/layer_4="Wall"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

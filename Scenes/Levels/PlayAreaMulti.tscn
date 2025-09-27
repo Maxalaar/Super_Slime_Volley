@@ -12,14 +12,14 @@
 
 [sub_resource type="Resource" id="Resource_aoj3m"]
 script = ExtResource("2_2wiqv")
-slime_number = 2
+slime_number = 1
 color = Color(0.5333242, 1.0949746e-06, 2.8878452e-07, 1)
 name = "Left"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
 
 [sub_resource type="Resource" id="Resource_6cl5q"]
 script = ExtResource("2_2wiqv")
-slime_number = 2
+slime_number = 1
 color = Color(2.7915835e-06, 0, 0.67593414, 1)
 name = "Right"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
@@ -48,7 +48,6 @@ metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("3_2wiqv")
-control_mode = 0
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -73,14 +72,20 @@ position = Vector2(1377, -212)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 19.0
-offset_top = 15.0
-offset_right = 209.0
-offset_bottom = 64.0
-theme_override_font_sizes/normal_font_size = 35
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 69.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "Score : [color=#ff00ff]0[/color] - 0"
+text = "Score"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("8_sc6oo")
