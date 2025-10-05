@@ -21,6 +21,10 @@ SignalManager="*res://Scripts/signal_manager.gd"
 TimeManager="*res://Scripts/time_manager.gd"
 InputManager="*res://Scripts/input_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Super Slime Volley"
@@ -34,7 +38,8 @@ enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg")
 folder_colors={
 "res://Assets/": "yellow",
 "res://Scenes/": "blue",
-"res://Scripts/": "red"
+"res://Scripts/": "red",
+"res://Sprites/": "green"
 }
 
 [global_group]
@@ -92,3 +97,4 @@ arrows_jump={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.48877347, 0.7481158, 0.943185, 1)

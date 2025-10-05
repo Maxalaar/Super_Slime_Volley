@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4qo0vk614yt7"]
+[gd_scene load_steps=17 format=3 uid="uid://4qo0vk614yt7"]
 
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_5q6f0"]
 [ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/team.gd" id="2_qnc68"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/StaticElements/Net.tscn" id="5_ov7pv"]
 [ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="6_7qqmr"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="7_5mlxi"]
+[ext_resource type="Script" uid="uid://jtg3oonl6bxb" path="res://Scripts/cloud_manager.gd" id="8_ov7pv"]
 [ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/MovingElements/Ball.tscn" id="8_tiel4"]
+[ext_resource type="PackedScene" uid="uid://baafpaojjb6l8" path="res://Scenes/MovingElements/Cloud.tscn" id="9_7qqmr"]
+[ext_resource type="Texture2D" uid="uid://utfu1scteg4i" path="res://Sprites/palm_tree.png" id="9_ov7pv"]
 [ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/score.gd" id="9_ph36x"]
 [ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/pause_handler.gd" id="11_5fajs"]
 [ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="12_8bkyc"]
@@ -52,6 +55,7 @@ metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")
+control_mode = 0
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -69,6 +73,37 @@ scale = Vector2(200, 648)
 [node name="Roof" parent="WallsContainer" instance=ExtResource("4_8bkyc")]
 position = Vector2(0, -524)
 scale = Vector2(1152, 200)
+
+[node name="CloudManager" type="Node2D" parent="."]
+script = ExtResource("8_ov7pv")
+cloud_scene = ExtResource("9_7qqmr")
+speed_minimum = 20.0
+speed_maximum = 30.0
+scale_minimum = 0.6
+scale_maximum = 1.0
+height_coefficient_minimum = 0.0
+cooldown_minimum = 5.0
+cooldown_maximum = 20.0
+clouds_on_spawn = 3
+metadata/_custom_type_script = "uid://jtg3oonl6bxb"
+
+[node name="PalmTree2" type="Sprite2D" parent="."]
+position = Vector2(-529, 39.999985)
+rotation = 0.7378644
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("9_ov7pv")
+
+[node name="PalmTree_Left" type="Sprite2D" parent="."]
+position = Vector2(-524, 204.00003)
+rotation = 0.40795472
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_ov7pv")
+
+[node name="PalmTree_Right" type="Sprite2D" parent="."]
+position = Vector2(555, 151)
+rotation = -0.1781002
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_ov7pv")
 
 [node name="Ball" parent="." instance=ExtResource("8_tiel4")]
 position = Vector2(1377, -212)
@@ -107,6 +142,7 @@ input_selectors_container = NodePath("PausePanel/InputSelectorsContainer")
 input_selector_scene = ExtResource("12_8bkyc")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

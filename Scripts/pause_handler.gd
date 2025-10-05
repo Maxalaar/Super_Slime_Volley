@@ -15,7 +15,7 @@ func _ready() -> void:
 		for i in team.slime_number:
 			var input_selector : InputSelector = input_selector_scene.instantiate() as InputSelector
 			input_selectors_container.add_child(input_selector)
-			input_selector.label.text = team.name + " Team Slime " + str(i)
+			input_selector.label.text = team.name + " Team Slime " + str(i + 1)
 			input_selector.team = team
 			input_selector.slime_index = i
 
