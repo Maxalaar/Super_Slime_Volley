@@ -52,7 +52,6 @@ metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")
-control_mode = 0
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
