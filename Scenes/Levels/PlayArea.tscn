@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4qo0vk614yt7"]
+[gd_scene load_steps=18 format=3 uid="uid://4qo0vk614yt7"]
 
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_5q6f0"]
 [ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/team.gd" id="2_qnc68"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/score.gd" id="9_ph36x"]
 [ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/pause_handler.gd" id="11_5fajs"]
 [ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="12_8bkyc"]
+[ext_resource type="Script" uid="uid://egelqqqu1xwh" path="res://Scripts/time_scale_slider.gd" id="15_5mlxi"]
 
 [sub_resource type="Resource" id="Resource_aoj3m"]
 script = ExtResource("2_qnc68")
@@ -119,6 +120,7 @@ offset_right = 95.0
 offset_bottom = 69.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "Score"
@@ -159,3 +161,23 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="TimeScaleSlider" type="HSlider" parent="CanvasLayer/PauseHandler/PausePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -104.0
+offset_right = 100.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(100, 0)
+max_value = 2.0
+step = 0.01
+value = 1.0
+script = ExtResource("15_5mlxi")
