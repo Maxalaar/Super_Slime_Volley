@@ -2,6 +2,8 @@
 extends Node2D
 class_name PlayArea
 
+static var instance : PlayArea
+
 @export var ball : Ball
 @export var score : Score
 
@@ -29,6 +31,9 @@ class_name PlayArea
 var ground_list : Array[Wall]
 var net_list : Array[Node2D]
 
+func _init() -> void:
+	instance = self
+
 func _ready() -> void:
 	SignalManager.game_over.connect(_on_game_over)
 	SignalManager.point_scored.connect(_on_point_scored)
@@ -42,6 +47,8 @@ func _ready() -> void:
 	
 	for team : Team in team_list:
 		team.initialize()
+	
+	SignalManager.emit_play_area_is_ready()
 
 
 func _on_game_over():
@@ -99,4 +106,3 @@ func spawn_slimes():
 			team.slime_list.append(slime)
 			add_child(slime)
 			slime.polygon_2d.color = team.color
-			slime.play_area = self

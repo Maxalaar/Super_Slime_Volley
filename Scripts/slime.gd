@@ -22,7 +22,9 @@ var is_on_ground : bool = false
 var initial_position : Vector2
 var team : Team
 var current_ball_touch_number : int = 0
-var play_area : PlayArea
+
+var input_mode : String
+var gamepad_index : int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -76,30 +78,49 @@ func _physics_process(delta: float) -> void:
 			if node.is_in_group("ground"):
 				is_on_ground = true
 
+func set_input_mode(input_mode : String):
+	self.input_mode = input_mode
+	
+	if input_mode.split(" ")[-1].is_valid_int():
+		gamepad_index = input_mode.split(" ")[-1].to_int() - 1
+	else:
+		gamepad_index = -1
+
 func update_inputs():
 	velocity.x = 0
 	
-	if ai_controller.heuristic == "human":
-		if Input.is_action_pressed("move_left"):
-			velocity.x = -speed
-		if Input.is_action_pressed("move_right"):
-			velocity.x = speed
-		if Input.is_action_pressed("jump"):
-			jump()
+	if gamepad_index == -1:
+		if input_mode == "Keyboard ZQSD":
+			move(Input.is_action_pressed("zqsd_move_left"),\
+				Input.is_action_pressed("zqsd_move_right"),\
+				Input.is_action_pressed("zqsd_jump"))
+		elif input_mode == "Keyboard Arrows":
+			move(Input.is_action_pressed("arrows_move_left"),\
+				Input.is_action_pressed("arrows_move_right"),\
+				Input.is_action_pressed("arrows_jump"))
+		elif input_mode == "AI":
+			move(ai_controller.move_left_action,\
+				ai_controller.move_right_action,\
+				ai_controller.jump_action)
 	else:
-		if ai_controller.move_left_action:
-			velocity.x = -speed
-		if ai_controller.move_right_action:
-			velocity.x = speed
-		if ai_controller.jump_action:
-			jump()
+		move(InputManager.is_gamepad_moving_left(gamepad_index),\
+			InputManager.is_gamepad_moving_right(gamepad_index),\
+			InputManager.is_gamepad_jumping(gamepad_index))
+
+func move(is_moving_left : bool, is_moving_right : bool, is_jumping : bool):
+	if is_moving_left:
+		velocity.x = -speed
+	if is_moving_right:
+		velocity.x = speed
+	if is_jumping:
+		jump()
 
 func jump():
 	if is_on_ground == false:
 		return
 	
 	velocity.y = -jump_force
-
+	
 func on_ball_touched(ball : Ball):
 	current_ball_touch_number += 1
 	update_transparency()
@@ -131,6 +152,8 @@ func _on_ball_hit_different_team():
 func get_ai_information() -> Array:
 	var slime_position = global_position
 	var slime_velocity = velocity
+	
+	var play_area : PlayArea = PlayArea.instance
 	
 	var ball_position = play_area.ball.global_position
 	var to_local_ball_position = to_local(play_area.ball.global_position)

@@ -32,7 +32,7 @@ func get_obs() -> Dictionary:
 		if team_slime != slime:
 			obs.append_array(team_slime.get_ai_information())
 	
-	for team : Team in slime.play_area.team_list:
+	for team : Team in PlayArea.instance.team_list:
 		if team != slime.team:
 			for other_slime : Slime in team.slime_list:
 				obs.append_array(other_slime.get_ai_information())
