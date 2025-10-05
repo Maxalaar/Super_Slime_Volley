@@ -149,4 +149,5 @@ func get_ai_information() -> Array:
 		ball_velocity.y / play_area.ball.max_speed,\
 		float(current_ball_touch_number) / float(maximum_ball_touch_number),\
 		float(play_area.team_list.find(team)) / float(play_area.team_list.size()),\
+		float(team.score) / float(team.maximum_score),\
 		]

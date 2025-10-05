@@ -13,6 +13,7 @@ collision_layer = 2
 collision_mask = 9
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_jdpsq")
+continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_fnnil")

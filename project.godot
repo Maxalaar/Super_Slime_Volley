@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SignalManager="*res://Scripts/signal_manager.gd"
 
+[dotnet]
+
+project/assembly_name="Super Slime Volley"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg")
