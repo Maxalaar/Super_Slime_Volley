@@ -2,11 +2,11 @@
 	<members name="ONNXInference">
 		<ONNXInference>
 			<summary>
-       		The main <c>ONNXInference</c> Class that handles the inference process.
-        	</summary>
+	   		The main <c>ONNXInference</c> Class that handles the inference process.
+			</summary>
 		</ONNXInference>
    		<Initialize>
-        	<summary>
+			<summary>
 			Starts the inference process. 
 			</summary>
 			<param name="Path">Path to the ONNX model, expects a path inside resources.</param>
