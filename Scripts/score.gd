@@ -14,10 +14,11 @@ func set_team_list(list : Array[Team]):
 func _on_game_over():
 	text = fixed_text
 	for i in team_list.size():
+		var team : Team = team_list[i]
 		if i > 0:
 			text += " -"
 		
-		text += " 0"
+		text += " [color=#" + team.color.to_html() + "] 0[/color]"
 
 func update_score():
 	text = fixed_text
@@ -26,6 +27,4 @@ func update_score():
 		if i > 0:
 			text += " -"
 		
-		text += " " + str(team.score)
-		
-		#[color=#ff00ff]0[/color]
+		text += " [color=#" + team.color.to_html() + "]" + str(team.score) + "[/color]"

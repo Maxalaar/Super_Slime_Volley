@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rmdl5eius5u2"]
+
+[ext_resource type="Texture2D" uid="uid://t5tjdcc3dfey" path="res://Sprites/Cosmetics/shield.png" id="1_u5ksf"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_p5rd1"]
+
+[node name="Shield" type="Sprite2D"]
+position = Vector2(-43.999996, -20)
+rotation = -0.32986724
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_u5ksf")
+script = ExtResource("2_p5rd1")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://w8f1nj1351q6"]
+
+[ext_resource type="Texture2D" uid="uid://dy5nm5ihv0m2t" path="res://Sprites/Cosmetics/scar.png" id="1_08ied"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_or5b5"]
+
+[node name="Scar" type="Sprite2D"]
+position = Vector2(-15.000001, -30.000002)
+rotation = -0.32986724
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_08ied")
+script = ExtResource("2_or5b5")
+is_behind_eyes = true

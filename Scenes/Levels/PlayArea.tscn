@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4qo0vk614yt7"]
+[gd_scene load_steps=32 format=3 uid="uid://4qo0vk614yt7"]
 
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_5q6f0"]
 [ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/team.gd" id="2_qnc68"]
@@ -6,15 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="4_8bkyc"]
 [ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/StaticElements/Net.tscn" id="5_ov7pv"]
 [ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="6_7qqmr"]
+[ext_resource type="Script" uid="uid://jsdlbg8rvrai" path="res://Scripts/slime_manager.gd" id="7_5mb5f"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="7_5mlxi"]
+[ext_resource type="PackedScene" uid="uid://chih4ohvublsk" path="res://Scenes/Characters/Cosmetics/Bowtie.tscn" id="8_hf643"]
 [ext_resource type="Script" uid="uid://jtg3oonl6bxb" path="res://Scripts/cloud_manager.gd" id="8_ov7pv"]
 [ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/MovingElements/Ball.tscn" id="8_tiel4"]
 [ext_resource type="PackedScene" uid="uid://baafpaojjb6l8" path="res://Scenes/MovingElements/Cloud.tscn" id="9_7qqmr"]
-[ext_resource type="Texture2D" uid="uid://utfu1scteg4i" path="res://Sprites/palm_tree.png" id="9_ov7pv"]
+[ext_resource type="Texture2D" uid="uid://utfu1scteg4i" path="res://Sprites/Background/palm_tree.png" id="9_ov7pv"]
 [ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/score.gd" id="9_ph36x"]
+[ext_resource type="PackedScene" uid="uid://bv6lijij7t58g" path="res://Scenes/Characters/Cosmetics/Flower.tscn" id="9_sa4x1"]
+[ext_resource type="PackedScene" uid="uid://d3oewgruei8w2" path="res://Scenes/Characters/Cosmetics/Glasses.tscn" id="10_2ysal"]
+[ext_resource type="PackedScene" uid="uid://d2ad6vvfutfoa" path="res://Scenes/Characters/Cosmetics/Money.tscn" id="11_4bskk"]
 [ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/pause_handler.gd" id="11_5fajs"]
 [ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="12_8bkyc"]
+[ext_resource type="PackedScene" uid="uid://dnk2m8jwmm2ax" path="res://Scenes/Characters/Cosmetics/Monocle.tscn" id="12_l2f2o"]
+[ext_resource type="PackedScene" uid="uid://bxosi37d2sfxo" path="res://Scenes/Characters/Cosmetics/Moustache.tscn" id="13_1uat6"]
+[ext_resource type="PackedScene" uid="uid://w8f1nj1351q6" path="res://Scenes/Characters/Cosmetics/Scar.tscn" id="14_7qf4v"]
+[ext_resource type="PackedScene" uid="uid://rmdl5eius5u2" path="res://Scenes/Characters/Cosmetics/Shield.tscn" id="15_3uig6"]
 [ext_resource type="Script" uid="uid://egelqqqu1xwh" path="res://Scripts/time_scale_slider.gd" id="15_5mlxi"]
+[ext_resource type="PackedScene" uid="uid://dxtkug1jkn60m" path="res://Scenes/Characters/Cosmetics/Sunglasses.tscn" id="16_4pae4"]
+[ext_resource type="PackedScene" uid="uid://dysn2vo2k53ng" path="res://Scenes/UI/CosmeticSelector.tscn" id="16_tiel4"]
+[ext_resource type="PackedScene" uid="uid://dirqdly8rc4ai" path="res://Scenes/Characters/Cosmetics/Sword.tscn" id="17_p5nar"]
+[ext_resource type="PackedScene" uid="uid://ci76xou7to1v1" path="res://Scenes/Characters/Cosmetics/TopHat.tscn" id="18_l1pl5"]
+[ext_resource type="PackedScene" uid="uid://c6gqd8ts50aeo" path="res://Scenes/Characters/Cosmetics/Trophy.tscn" id="19_dobph"]
 
 [sub_resource type="Resource" id="Resource_aoj3m"]
 script = ExtResource("2_qnc68")
@@ -26,7 +40,7 @@ metadata/_custom_type_script = "uid://clyb11d4b2uxu"
 [sub_resource type="Resource" id="Resource_6cl5q"]
 script = ExtResource("2_qnc68")
 slime_number = 2
-color = Color(2.7915835e-06, 0, 0.67593414, 1)
+color = Color(0.0045020543, 0.1764943, 0.7884566, 1)
 name = "Right"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
 
@@ -52,8 +66,14 @@ script = ExtResource("6_7qqmr")
 is_debug_mode = false
 metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
+[node name="SlimeManager" type="Node" parent="."]
+script = ExtResource("7_5mb5f")
+cosmetic_scene_list = Array[PackedScene]([ExtResource("8_hf643"), ExtResource("9_sa4x1"), ExtResource("10_2ysal"), ExtResource("11_4bskk"), ExtResource("12_l2f2o"), ExtResource("13_1uat6"), ExtResource("14_7qf4v"), ExtResource("15_3uig6"), ExtResource("16_4pae4"), ExtResource("17_p5nar"), ExtResource("18_l1pl5"), ExtResource("19_dobph")])
+metadata/_custom_type_script = "uid://jsdlbg8rvrai"
+
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")
+control_mode = 0
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -104,6 +124,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("9_ov7pv")
 
 [node name="Ball" parent="." instance=ExtResource("8_tiel4")]
+z_index = 1
 position = Vector2(1377, -212)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -139,6 +160,7 @@ script = ExtResource("11_5fajs")
 pause_panel = NodePath("PausePanel")
 input_selectors_container = NodePath("PausePanel/InputSelectorsContainer")
 input_selector_scene = ExtResource("12_8bkyc")
+cosmetic_selector_scene = ExtResource("16_tiel4")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]
 visible = false

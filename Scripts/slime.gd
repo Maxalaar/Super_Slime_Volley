@@ -8,6 +8,9 @@ class_name Slime
 @export_range(0, 1) var transparency_minimum : float = 0.1
 @export_range(0, 1) var transparency_maximum : float = 1
 
+@export var behind_eyes_pivot : Node2D
+@export var front_eyes_pivot : Node2D
+
 @export_group("Collision Shape")
 @export var collision_shape : CollisionShape2D
 @export var size : float
@@ -27,6 +30,8 @@ var input_mode : String
 var gamepad_index : int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var current_cosmetic : Sprite2D
 
 #region Collision Shape
 #@export_tool_button("Generate Collision Shape") var gen_coll = generate_collision_shape
@@ -58,9 +63,11 @@ func _ready() -> void:
 	
 	ai_controller.init(self)
 	initial_position = global_position
+	
 
 func _process(delta: float) -> void:
 	update_inputs()
+
 
 func _physics_process(delta: float) -> void:
 	rotation_degrees = 0
@@ -174,3 +181,15 @@ func get_ai_information() -> Array:
 		float(play_area.team_list.find(team)) / float(play_area.team_list.size()),\
 		float(team.score) / float(team.maximum_score),\
 		]
+
+func set_cosmetic(cosmetic_scene : PackedScene):
+	if current_cosmetic != null:
+		current_cosmetic.queue_free()
+	
+	var cosmetic : Cosmetic = cosmetic_scene.instantiate() as Cosmetic
+	current_cosmetic = cosmetic
+	
+	if cosmetic.is_behind_eyes == true:
+		behind_eyes_pivot.add_child(cosmetic)
+	else:
+		front_eyes_pivot.add_child(cosmetic)

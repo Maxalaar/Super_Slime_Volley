@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci76xou7to1v1"]
+
+[ext_resource type="Texture2D" uid="uid://dey7coq8yi3p8" path="res://Sprites/Cosmetics/top_hat.png" id="1_dj3wt"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_pxc61"]
+
+[node name="TopHat" type="Sprite2D"]
+position = Vector2(-7, -65)
+rotation = -0.16580628
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_dj3wt")
+script = ExtResource("2_pxc61")

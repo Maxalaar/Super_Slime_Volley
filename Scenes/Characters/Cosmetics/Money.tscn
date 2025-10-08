@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ad6vvfutfoa"]
+
+[ext_resource type="Texture2D" uid="uid://beyapb6riq4wq" path="res://Sprites/Cosmetics/money.png" id="1_a7tlu"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_g8afn"]
+
+[node name="Money" type="Sprite2D"]
+position = Vector2(40.999996, -24)
+rotation = -0.20882255
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_a7tlu")
+script = ExtResource("2_g8afn")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxtkug1jkn60m"]
+
+[ext_resource type="Texture2D" uid="uid://bq4mvcbkpuq48" path="res://Sprites/Cosmetics/sunglasses.png" id="1_lygki"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_x18r8"]
+
+[node name="Sunglasses" type="Sprite2D"]
+position = Vector2(0, -31)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_lygki")
+script = ExtResource("2_x18r8")
