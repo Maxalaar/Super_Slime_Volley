@@ -162,25 +162,17 @@ func get_ai_information() -> Array:
 	
 	var play_area : PlayArea = PlayArea.instance
 	
-	var ball_position = play_area.ball.global_position
-	var to_local_ball_position = to_local(play_area.ball.global_position)
-	var ball_velocity = play_area.ball.linear_velocity
-	
-	return [\
+	var information : Array = [\
 		slime_position.x / (play_area.level_width),\
 		slime_position.y / (play_area.level_height),\
 		slime_velocity.x / speed,\
 		slime_velocity.y / jump_force,\
-		ball_position.x / (play_area.level_width),\
-		ball_position.y / (play_area.level_height),\
-		to_local_ball_position.x / (play_area.level_width),\
-		to_local_ball_position.y / (play_area.level_height),\
-		ball_velocity.x / play_area.ball.max_speed,\
-		ball_velocity.y / play_area.ball.max_speed,\
 		float(current_ball_touch_number) / float(maximum_ball_touch_number),\
 		float(play_area.team_list.find(team)) / float(play_area.team_list.size()),\
 		float(team.score) / float(team.maximum_score),\
 		]
+	
+	return information
 
 func set_cosmetic(cosmetic_scene : PackedScene):
 	if current_cosmetic != null:

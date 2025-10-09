@@ -28,6 +28,8 @@ func get_obs() -> Dictionary:
 	
 	var obs : Array = slime.get_ai_information()
 	
+	obs.append_array(PlayArea.instance.ball.get_ai_information())
+	
 	for team_slime : Slime in slime.team.slime_list:
 		if team_slime != slime:
 			obs.append_array(team_slime.get_ai_information())

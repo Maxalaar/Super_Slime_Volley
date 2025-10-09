@@ -73,7 +73,6 @@ metadata/_custom_type_script = "uid://jsdlbg8rvrai"
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")
-control_mode = 0
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -107,8 +106,8 @@ metadata/_custom_type_script = "uid://jtg3oonl6bxb"
 
 [node name="PalmTree2" type="Sprite2D" parent="."]
 position = Vector2(-529, 39.999985)
-rotation = 0.7378644
-scale = Vector2(-0.6, 0.6)
+rotation = -2.4037282
+scale = Vector2(0.6, -0.6)
 texture = ExtResource("9_ov7pv")
 
 [node name="PalmTree_Left" type="Sprite2D" parent="."]
@@ -128,6 +127,7 @@ z_index = 1
 position = Vector2(1377, -212)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 5
