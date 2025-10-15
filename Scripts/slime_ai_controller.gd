@@ -19,7 +19,8 @@ func _on_debug_mode_start():
 func init(player: Node2D):
 	super.init(player)
 	slime = _player as Slime
-	onnx_model_path += slime.policy_name + ".onnx"
+	
+	onnx_model_path += policy_name + ".onnx"
 
 func _process(delta: float) -> void:
 	if is_debug_mode == true || DebugManager.is_debug_started == true:

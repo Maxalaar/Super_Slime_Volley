@@ -2,8 +2,9 @@
 extends RigidBody2D
 class_name Ball
 
-@export var initial_max_speed : float = 50
-@export var max_speed_increment : float = 20
+@export var initial_max_speed : float
+@export var max_speed_increment : float
+@export var max_max_speed : float
 @export var spawn_offset_percent_x : float = 0.1
 @export var spawn_offset_percent_y : float = 0.1
 
@@ -17,7 +18,6 @@ class_name Ball
 var initial_position : Vector2
 var need_position_reset : bool = false
 var current_max_speed : float
-var last_position : Vector2
 
 var last_slime_touched : Slime
 
@@ -48,7 +48,6 @@ func _init() -> void:
 	SignalManager.ball_hit_different_team.connect(_on_ball_hit_different_team)
 	
 	current_max_speed = initial_max_speed
-	last_position = global_position
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -69,9 +68,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if linear_velocity.length() >= current_max_speed:
 		linear_velocity = current_max_speed * linear_velocity.normalized()
 
-func _physics_process(delta: float) -> void:
-	last_position = global_position
-
 func get_ai_information() -> Array:
 	var play_area : PlayArea = PlayArea.instance
 
@@ -83,17 +79,14 @@ func get_ai_information() -> Array:
 		ball_position.y / (play_area.level_height),\
 		ball_velocity.x / current_max_speed,\
 		ball_velocity.y / current_max_speed,\
-		last_position.x / (play_area.level_width),\
-		last_position.y / (play_area.level_height),\
-		(global_position.x - last_position.x) / (play_area.level_width),\
-		(global_position.y - last_position.y) / (play_area.level_height),\
+		current_max_speed / max_max_speed,\
 	]
 
 func _on_body_entered(body : Node):
 	if body is Slime:
 		if last_slime_touched != null && body.team != last_slime_touched.team:
 			SignalManager.emit_ball_hit_different_team()
-			current_max_speed += max_speed_increment
+			current_max_speed = min(current_max_speed + max_speed_increment, max_max_speed)
 		
 		body.on_ball_touched(self)
 		last_slime_touched = body as Slime

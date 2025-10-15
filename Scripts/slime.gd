@@ -25,7 +25,6 @@ var is_on_ground : bool = false
 var initial_position : Vector2
 var team : Team
 var current_ball_touch_number : int = 0
-var policy_name : String
 
 var input_mode : String
 var gamepad_index : int = 0
