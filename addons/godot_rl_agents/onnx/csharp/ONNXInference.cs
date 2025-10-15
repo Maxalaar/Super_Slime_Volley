@@ -31,12 +31,19 @@ namespace GodotONNX
 			batchSize = BatchSize;
 			SessionOpt = SessionConfigurator.MakeConfiguredSessionOptions();
 			session = LoadModel(modelPath);
-			return session.OutputMetadata["output"].Dimensions[1];
+
+			//GD.Print("\nOUTPUT METADATA\n");
+			//foreach (string key in session.OutputMetadata.Keys)
+			//{
+			//	GD.Print(key);
+			//}
+
+            return session.OutputMetadata["output"].Dimensions[1];
 		}
 
 
-		/// <include file='docs/ONNXInference.xml' path='docs/members[@name="ONNXInference"]/Run/*'/>
-		public Godot.Collections.Dictionary<string, Godot.Collections.Array<float>> RunInference(Godot.Collections.Array<float> obs, int state_ins)
+        /// <include file='docs/ONNXInference.xml' path='docs/members[@name="ONNXInference"]/Run/*'/>
+        public Godot.Collections.Dictionary<string, Godot.Collections.Array<float>> RunInference(Godot.Collections.Array<float> obs, int state_ins)
 		{
 			//Current model: Any (Godot Rl Agents)
 			//Expects a tensor of shape [batch_size, input_size] type float named obs and a tensor of shape [batch_size] type float named state_ins
@@ -56,7 +63,21 @@ namespace GodotONNX
 			};
 			IReadOnlyCollection<string> outputNames = new List<string> { "output", "state_outs" }; //ONNX is sensible to these names, as well as the input names
 
-			IDisposableReadOnlyCollection<DisposableNamedOnnxValue> results; 
+            //GD.Print("\nINPUT METADATA\n");
+            //foreach (NamedOnnxValue key in inputs)
+            //{
+            //    GD.Print(key.Name);
+            //}
+            //GD.Print("\n");
+
+            //GD.Print("\nSESSION INPUT METADATA\n");
+            //foreach (string key in session.InputMetadata.Keys)
+            //{
+            //    GD.Print(key);
+            //}
+            //GD.Print("\n");
+
+            IDisposableReadOnlyCollection<DisposableNamedOnnxValue> results; 
 			//We do not use "using" here so we get a better exception explaination later
 			try
 			{
@@ -75,7 +96,7 @@ namespace GodotONNX
 			Godot.Collections.Array<float> output1Array = new Godot.Collections.Array<float>();
 			Godot.Collections.Array<float> output2Array = new Godot.Collections.Array<float>();
 
-			foreach (float f in output1.AsEnumerable<float>())
+            foreach (float f in output1.AsEnumerable<float>())
 			{
 				output1Array.Add(f);
 			}

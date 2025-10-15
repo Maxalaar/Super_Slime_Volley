@@ -63,7 +63,6 @@ net_scene = ExtResource("5_ov7pv")
 
 [node name="DebugManager" type="Node" parent="."]
 script = ExtResource("6_7qqmr")
-is_debug_mode = false
 metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="SlimeManager" type="Node" parent="."]
@@ -73,6 +72,8 @@ metadata/_custom_type_script = "uid://jsdlbg8rvrai"
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")
+control_mode = 2
+onnx_model_path = "res://Assets/Onnx/Version_1/0.onnx"
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
 [node name="Camera2D" type="Camera2D" parent="."]

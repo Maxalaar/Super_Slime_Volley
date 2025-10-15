@@ -99,10 +99,16 @@ func generate_play_area():
 			net_list.append(net)
 
 func spawn_slimes():
+	var index : int = 0
+	
 	for team : Team in team_list:
 		for i in team.slime_number:
 			var slime : Slime = slime_scene.instantiate() as Slime
 			slime.team = team
 			team.slime_list.append(slime)
+			
+			slime.policy_name = str(index)
+			index += 1
+			
 			add_child(slime)
 			slime.polygon_2d.color = team.color

@@ -25,6 +25,7 @@ var is_on_ground : bool = false
 var initial_position : Vector2
 var team : Team
 var current_ball_touch_number : int = 0
+var policy_name : String
 
 var input_mode : String
 var gamepad_index : int = 0
@@ -67,6 +68,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	update_inputs()
+	
+	#var cosmetic_name : String
+	#if current_cosmetic == null:
+		#cosmetic_name = "No Cosmetic"
+	#else:
+		#cosmetic_name = current_cosmetic.name
+	#print("slime " + cosmetic_name + " : " + policy_name)
 
 
 func _physics_process(delta: float) -> void:

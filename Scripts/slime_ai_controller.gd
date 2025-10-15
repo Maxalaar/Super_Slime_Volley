@@ -8,11 +8,18 @@ var jump_action : bool = false
 
 var is_debug_mode : bool = false
 
+var slime : Slime
+
 func _init() -> void:
 	SignalManager.debug_mode_start.connect(_on_debug_mode_start)
 
 func _on_debug_mode_start():
 	is_debug_mode = true
+
+func init(player: Node2D):
+	super.init(player)
+	slime = _player as Slime
+	onnx_model_path += slime.policy_name + ".onnx"
 
 func _process(delta: float) -> void:
 	if is_debug_mode == true || DebugManager.is_debug_started == true:
@@ -24,8 +31,6 @@ func _process(delta: float) -> void:
 				printerr("Value not between -1 and 1 !")
 
 func get_obs() -> Dictionary:
-	var slime : Slime = _player as Slime
-	
 	var obs : Array = slime.get_ai_information()
 	
 	obs.append_array(PlayArea.instance.ball.get_ai_information())
@@ -60,7 +65,11 @@ func get_action_space() -> Dictionary:
 		#},
 	#}
 	
-	return {
+	var result : Dictionary = {
+		"jump_action" : {
+			"size" : 2,
+			"action_type" : "discrete"
+		},
 		"move_left_action" : {
 			"size" : 2,
 			"action_type" : "discrete"
@@ -69,11 +78,13 @@ func get_action_space() -> Dictionary:
 			"size" : 2,
 			"action_type" : "discrete"
 		},
-		"jump_action" : {
-			"size" : 2,
-			"action_type" : "discrete"
-		},
 	}
+	
+	# Actions logit are returned in alphabetical order, so we make sure actions
+	# are in the same order to match logits
+	result.sort()
+	
+	return result
 	
 	#return {
 		#"action" : {

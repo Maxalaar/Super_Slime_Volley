@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Super Slime Volley"
 run/main_scene="uid://4qo0vk614yt7"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
