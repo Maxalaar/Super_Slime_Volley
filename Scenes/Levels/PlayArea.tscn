@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="4_8bkyc"]
 [ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/StaticElements/Net.tscn" id="5_ov7pv"]
 [ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="6_7qqmr"]
-[ext_resource type="Script" path="res://Scripts/slime_manager.gd" id="7_5mb5f"]
+[ext_resource type="Script" uid="uid://jsdlbg8rvrai" path="res://Scripts/slime_manager.gd" id="7_5mb5f"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="7_5mlxi"]
 [ext_resource type="PackedScene" uid="uid://chih4ohvublsk" path="res://Scenes/Characters/Cosmetics/Bowtie.tscn" id="8_hf643"]
 [ext_resource type="Script" uid="uid://jtg3oonl6bxb" path="res://Scripts/cloud_manager.gd" id="8_ov7pv"]

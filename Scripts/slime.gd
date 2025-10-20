@@ -170,13 +170,16 @@ func get_ai_information() -> Array:
 	var play_area : PlayArea = PlayArea.instance
 	
 	var information : Array = [\
-		slime_position.x / (play_area.level_width),\
-		slime_position.y / (play_area.level_height),\
+		slime_position.x / play_area.level_width,\
+		slime_position.y / play_area.level_height,\
 		slime_velocity.x / speed,\
 		slime_velocity.y / jump_force,\
 		float(current_ball_touch_number) / float(maximum_ball_touch_number),\
 		float(play_area.team_list.find(team)) / float(play_area.team_list.size()),\
 		float(team.score) / float(team.maximum_score),\
+		(play_area.ball.global_position.x - global_position.x) / play_area.level_width,\
+		(play_area.ball.global_position.y - global_position.y) / play_area.level_height,\
+		(play_area.ball.global_position - global_position).length() / (Vector2(play_area.level_width, play_area.level_height).length()),\
 		]
 	
 	return information

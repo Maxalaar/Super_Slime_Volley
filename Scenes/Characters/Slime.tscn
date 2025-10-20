@@ -31,7 +31,7 @@ polygon = PackedVector2Array(50, 0, 49.38442, -7.8217235, 47.552826, -15.45085, 
 
 [node name="AIController2D" type="Node2D" parent="."]
 script = ExtResource("2_ns5c0")
-onnx_model_path = "res://Assets/Onnx/Version_1/"
+onnx_model_path = "res://Assets/Onnx/Version_4/"
 metadata/_custom_type_script = "uid://gs021hdueapq"
 
 [node name="BehindEyesPivot" type="Node2D" parent="."]
