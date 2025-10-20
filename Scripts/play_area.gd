@@ -103,7 +103,7 @@ func spawn_slimes():
 		for i in team.slime_number:
 			var slime : Slime = slime_scene.instantiate() as Slime
 			slime.team = team
-			slime.ai_controller.policy_name = team.name.to_snake_case()
+			slime.ai_controller.policy_name = team.name.to_snake_case() + '_' + str(i)
 			team.slime_list.append(slime)
 			
 			add_child(slime)
