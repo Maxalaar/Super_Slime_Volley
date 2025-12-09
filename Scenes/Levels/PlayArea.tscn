@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://4qo0vk614yt7"]
+[gd_scene load_steps=42 format=3 uid="uid://4qo0vk614yt7"]
 
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/Levels/play_area.gd" id="1_5q6f0"]
 [ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/Characters/team.gd" id="2_qnc68"]
@@ -32,7 +32,12 @@
 [ext_resource type="PackedScene" uid="uid://6x6tbn52d8dy" path="res://Scenes/Characters/Cosmetics/Christmas/SantaHat.tscn" id="23_3uig6"]
 [ext_resource type="PackedScene" uid="uid://d3gq1qjsi5mne" path="res://Scenes/Levels/Ambiences/Beach.tscn" id="27_1uat6"]
 [ext_resource type="PackedScene" uid="uid://845ls6hq1w0k" path="res://Scenes/Levels/Ambiences/Christmas.tscn" id="28_7qf4v"]
+[ext_resource type="Texture2D" uid="uid://brlrgjopgrl0n" path="res://Sprites/UI/turtle.png" id="33_1uat6"]
+[ext_resource type="Texture2D" uid="uid://b0kvb3jrjqlga" path="res://Sprites/UI/bunny.png" id="35_7qf4v"]
 [ext_resource type="Script" uid="uid://bu5to7o03tx01" path="res://Scripts/UI/ambience_selector.gd" id="36_3uig6"]
+[ext_resource type="Texture2D" uid="uid://dv0wwfh0yj4lw" path="res://Sprites/UI/dumb.png" id="36_4pae4"]
+[ext_resource type="Script" uid="uid://diyiomlhnvpfc" path="res://Scripts/UI/repeat_action_slider.gd" id="37_4pae4"]
+[ext_resource type="Texture2D" uid="uid://csk1rf33eykvc" path="res://Sprites/UI/ai_brain.png" id="37_p5nar"]
 
 [sub_resource type="Resource" id="Resource_aoj3m"]
 script = ExtResource("2_qnc68")
@@ -47,6 +52,9 @@ slime_number = 2
 color = Color(0.0045020543, 0.1764943, 0.7884566, 1)
 name = "Right"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bskk"]
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.92156863)
 
 [node name="PlayArea" type="Node2D" node_paths=PackedStringArray("ball", "score", "walls_container", "wall_left", "wall_right", "roof", "ambience_pivot")]
 script = ExtResource("1_5q6f0")
@@ -147,6 +155,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4bskk")
 
 [node name="AmbienceSelector" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel" node_paths=PackedStringArray("popup_menu")]
 layout_mode = 1
@@ -182,22 +191,69 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TimeScaleSlider" type="HSlider" parent="CanvasLayer/PauseHandler/PausePanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -104.0
-offset_right = 100.0
-offset_bottom = -88.0
+offset_left = -354.0
+offset_top = -183.99997
+offset_right = 118.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(100, 0)
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 20
+
+[node name="TimeScale" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/TimeScale"]
+layout_mode = 2
+texture = ExtResource("33_1uat6")
+expand_mode = 2
+flip_h = true
+
+[node name="TimeScaleSlider" type="HSlider" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/TimeScale"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+size_flags_vertical = 1
 max_value = 2.0
 step = 0.01
 value = 1.0
 script = ExtResource("15_5mlxi")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/TimeScale"]
+layout_mode = 2
+texture = ExtResource("35_7qf4v")
+expand_mode = 2
+
+[node name="Difficulty" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/Difficulty"]
+layout_mode = 2
+texture = ExtResource("36_4pae4")
+expand_mode = 2
+flip_h = true
+
+[node name="TimeScaleSlider" type="HSlider" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/Difficulty" node_paths=PackedStringArray("sync")]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 24.0
+value = 16.0
+script = ExtResource("37_4pae4")
+sync = NodePath("../../../../../../Sync")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/Difficulty"]
+layout_mode = 2
+texture = ExtResource("37_p5nar")
+expand_mode = 2

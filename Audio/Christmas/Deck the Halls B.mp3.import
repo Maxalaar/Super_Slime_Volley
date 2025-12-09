@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pm8k0ajmpoaa"
+path="res://.godot/imported/Deck the Halls B.mp3-54e003fe73ac62316f405038d78ee67d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Christmas/Deck the Halls B.mp3"
+dest_files=["res://.godot/imported/Deck the Halls B.mp3-54e003fe73ac62316f405038d78ee67d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

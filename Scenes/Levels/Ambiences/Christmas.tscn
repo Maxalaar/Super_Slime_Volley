@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://845ls6hq1w0k"]
+[gd_scene load_steps=16 format=3 uid="uid://845ls6hq1w0k"]
 
 [ext_resource type="PackedScene" uid="uid://dl6j4wwtiphw6" path="res://Scenes/Levels/CloudManager.tscn" id="1_3oy4t"]
 [ext_resource type="Texture2D" uid="uid://cgfoaflnef4bc" path="res://Sprites/Background/pine_tree.webp" id="1_ntlbe"]
 [ext_resource type="Texture2D" uid="uid://d4lx5fhfjepy7" path="res://Sprites/Background/snowman.png" id="2_3oy4t"]
 [ext_resource type="Texture2D" uid="uid://srl58tg8oo5i" path="res://Sprites/Background/snowball.png" id="3_gpj8e"]
-[ext_resource type="AudioStream" uid="uid://cwpxx1ihqoaxg" path="res://Audio/Christmas Rap.mp3" id="5_gpj8e"]
+[ext_resource type="AudioStream" uid="uid://cwpxx1ihqoaxg" path="res://Audio/Christmas/Christmas Rap.mp3" id="5_gpj8e"]
+[ext_resource type="AudioStream" uid="uid://c6mnx3a7b10a0" path="res://Audio/Christmas/christmas-443109.mp3" id="6_u3xry"]
+[ext_resource type="AudioStream" uid="uid://dkhl0vy3j30ry" path="res://Audio/Christmas/christmas-background-431808.mp3" id="7_hrw2g"]
+[ext_resource type="AudioStream" uid="uid://jqjmkp7ynsv5" path="res://Audio/Christmas/christmas-holiday-431026.mp3" id="8_r4t0c"]
+[ext_resource type="AudioStream" uid="uid://y8hacaub7xbo" path="res://Audio/Christmas/christmas-holiday-festive-cheer-snow-427231.mp3" id="9_g6b34"]
+[ext_resource type="AudioStream" uid="uid://c7q0db8bk8ji1" path="res://Audio/Christmas/christmas-jazz-christmas-holiday-347485.mp3" id="10_6v77c"]
+[ext_resource type="AudioStream" uid="uid://gj68ctyoqx5m" path="res://Audio/Christmas/christmas-party-time-249613.mp3" id="11_kcvd7"]
+[ext_resource type="AudioStream" uid="uid://pm8k0ajmpoaa" path="res://Audio/Christmas/Deck the Halls B.mp3" id="12_y7vk4"]
+[ext_resource type="AudioStream" uid="uid://62vy5f255stp" path="res://Audio/Christmas/Oh Xmas.mp3" id="13_4gnep"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3uig6"]
 particle_flag_disable_z = true
@@ -16,6 +24,19 @@ initial_velocity_max = 80.0
 gravity = Vector3(0, 10, 0)
 scale_min = 0.099999994
 scale_max = 0.29999998
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_u3xry"]
+shuffle = true
+stream_count = 9
+stream_0 = ExtResource("5_gpj8e")
+stream_1 = ExtResource("6_u3xry")
+stream_2 = ExtResource("7_hrw2g")
+stream_3 = ExtResource("8_r4t0c")
+stream_4 = ExtResource("9_g6b34")
+stream_5 = ExtResource("10_6v77c")
+stream_6 = ExtResource("11_kcvd7")
+stream_7 = ExtResource("12_y7vk4")
+stream_8 = ExtResource("13_4gnep")
 
 [node name="Christmas" type="Node2D"]
 
@@ -45,5 +66,5 @@ lifetime = 7.0
 process_material = SubResource("ParticleProcessMaterial_3uig6")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_gpj8e")
+stream = SubResource("AudioStreamPlaylist_u3xry")
 autoplay = true
