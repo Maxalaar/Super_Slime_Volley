@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl6j4wwtiphw6"]
+
+[ext_resource type="Script" uid="uid://jtg3oonl6bxb" path="res://Scripts/Managers/cloud_manager.gd" id="1_b3iea"]
+[ext_resource type="PackedScene" uid="uid://baafpaojjb6l8" path="res://Scenes/MovingElements/Cloud.tscn" id="2_aalb0"]
+
+[node name="CloudManager" type="Node2D"]
+script = ExtResource("1_b3iea")
+cloud_scene = ExtResource("2_aalb0")
+speed_minimum = 20.0
+speed_maximum = 30.0
+scale_minimum = 0.6
+scale_maximum = 1.0
+height_coefficient_minimum = 0.0
+cooldown_minimum = 5.0
+cooldown_maximum = 20.0
+clouds_on_spawn = 3
+metadata/_custom_type_script = "uid://jtg3oonl6bxb"

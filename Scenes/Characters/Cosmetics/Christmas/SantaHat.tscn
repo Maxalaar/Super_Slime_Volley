@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://6x6tbn52d8dy"]
+
+[ext_resource type="Texture2D" uid="uid://cdxrws7garbax" path="res://Sprites/Cosmetics/Christmas/santa_hat.png" id="1_78go3"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_1n30q"]
+
+[node name="SantaHat" type="Sprite2D"]
+position = Vector2(-7, -61.000004)
+rotation = 0.013315457
+scale = Vector2(0.12988284, 0.12988284)
+texture = ExtResource("1_78go3")
+script = ExtResource("2_1n30q")

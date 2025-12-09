@@ -10,16 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Super Slime Volley"
+config/name="Super_Slime_Volley"
 run/main_scene="uid://4qo0vk614yt7"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SignalManager="*res://Scripts/signal_manager.gd"
-TimeManager="*res://Scripts/time_manager.gd"
-InputManager="*res://Scripts/input_manager.gd"
+SignalManager="*res://Scripts/Managers/signal_manager.gd"
+TimeManager="*res://Scripts/Managers/time_manager.gd"
+InputManager="*res://Scripts/Managers/input_manager.gd"
 
 [display]
 
@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "yellow",
+"res://Audio/": "pink",
 "res://Scenes/": "blue",
 "res://Scripts/": "red",
 "res://Sprites/": "green"

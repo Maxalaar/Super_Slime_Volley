@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://845ls6hq1w0k"]
+
+[ext_resource type="PackedScene" uid="uid://dl6j4wwtiphw6" path="res://Scenes/Levels/CloudManager.tscn" id="1_3oy4t"]
+[ext_resource type="Texture2D" uid="uid://cgfoaflnef4bc" path="res://Sprites/Background/pine_tree.webp" id="1_ntlbe"]
+[ext_resource type="Texture2D" uid="uid://d4lx5fhfjepy7" path="res://Sprites/Background/snowman.png" id="2_3oy4t"]
+[ext_resource type="Texture2D" uid="uid://srl58tg8oo5i" path="res://Sprites/Background/snowball.png" id="3_gpj8e"]
+[ext_resource type="AudioStream" uid="uid://cwpxx1ihqoaxg" path="res://Audio/Christmas Rap.mp3" id="5_gpj8e"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3uig6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+
+[node name="Christmas" type="Node2D"]
+
+[node name="CloudManager" parent="." instance=ExtResource("1_3oy4t")]
+visible = false
+
+[node name="PineTree" type="Sprite2D" parent="."]
+position = Vector2(-511.00003, 148.99998)
+scale = Vector2(0.76111114, 0.76111114)
+texture = ExtResource("1_ntlbe")
+
+[node name="PineTree2" type="Sprite2D" parent="."]
+position = Vector2(539, 165)
+scale = Vector2(0.691667, 0.691667)
+texture = ExtResource("1_ntlbe")
+
+[node name="Snowman" type="Sprite2D" parent="."]
+position = Vector2(-457.99997, 269)
+scale = Vector2(0.2421875, 0.2421875)
+texture = ExtResource("2_3oy4t")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -350)
+amount = 50
+texture = ExtResource("3_gpj8e")
+lifetime = 7.0
+process_material = SubResource("ParticleProcessMaterial_3uig6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gpj8e")
+autoplay = true

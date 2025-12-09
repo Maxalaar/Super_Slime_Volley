@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqu5onyrl57qv"]
+
+[ext_resource type="Texture2D" uid="uid://y0ym14o5mdsr" path="res://Sprites/Cosmetics/Christmas/reindeer_horns.png" id="1_nkxyi"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_tcsa2"]
+
+[node name="ReindeerHorns" type="Sprite2D"]
+position = Vector2(-4.5474735e-13, -64.00001)
+scale = Vector2(0.12890625, 0.12890625)
+texture = ExtResource("1_nkxyi")
+script = ExtResource("2_tcsa2")
+pivot_type = 0

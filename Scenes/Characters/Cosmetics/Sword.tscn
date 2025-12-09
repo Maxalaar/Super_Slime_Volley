@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dirqdly8rc4ai"]
 
 [ext_resource type="Texture2D" uid="uid://brxx78ptmm73f" path="res://Sprites/Cosmetics/sword.png" id="1_v7tar"]
-[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_3x8k5"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_3x8k5"]
 
 [node name="Sword" type="Sprite2D"]
 position = Vector2(34.000008, -25.000002)

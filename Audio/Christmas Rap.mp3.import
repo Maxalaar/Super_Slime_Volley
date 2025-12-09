@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwpxx1ihqoaxg"
+path="res://.godot/imported/Christmas Rap.mp3-a2cf8885a82216c1fb1f969f2d17bca7.mp3str"
+
+[deps]
+
+source_file="res://Audio/Christmas Rap.mp3"
+dest_files=["res://.godot/imported/Christmas Rap.mp3-a2cf8885a82216c1fb1f969f2d17bca7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

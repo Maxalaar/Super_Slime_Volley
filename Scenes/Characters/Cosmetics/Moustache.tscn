@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxosi37d2sfxo"]
 
 [ext_resource type="Texture2D" uid="uid://fncv7sieb01f" path="res://Sprites/Cosmetics/moustache.png" id="1_uevmx"]
-[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_qo1i8"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_qo1i8"]
 
 [node name="Moustache" type="Sprite2D"]
 position = Vector2(-3.8146973e-06, -14.000002)

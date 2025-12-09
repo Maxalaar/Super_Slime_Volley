@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chih4ohvublsk"]
 
 [ext_resource type="Texture2D" uid="uid://cprpgjvld1jta" path="res://Sprites/Cosmetics/bowtie.png" id="1_3fpef"]
-[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_kut3o"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_kut3o"]
 
 [node name="Bowtie" type="Sprite2D"]
 position = Vector2(-23, -48)

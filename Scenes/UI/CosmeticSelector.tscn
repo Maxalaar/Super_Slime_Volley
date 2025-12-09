@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dysn2vo2k53ng"]
 
-[ext_resource type="Script" uid="uid://0aqqpv656f2l" path="res://Scripts/cosmetic_selector.gd" id="1_uuwbq"]
+[ext_resource type="Script" uid="uid://0aqqpv656f2l" path="res://Scripts/UI/cosmetic_selector.gd" id="1_uuwbq"]
 
 [node name="CosmeticSelector" type="HBoxContainer" node_paths=PackedStringArray("popup_menu")]
 offset_right = 40.0

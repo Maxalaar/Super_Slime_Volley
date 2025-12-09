@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3oewgruei8w2"]
 
 [ext_resource type="Texture2D" uid="uid://beaa4yumqs5vw" path="res://Sprites/Cosmetics/glasses.png" id="1_s2huw"]
-[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_0cqoa"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_0cqoa"]
 
 [node name="Glasses" type="Sprite2D"]
 position = Vector2(0, -31)

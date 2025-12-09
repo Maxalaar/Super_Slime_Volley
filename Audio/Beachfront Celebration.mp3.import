@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxmdqabjnhfl5"
+path="res://.godot/imported/Beachfront Celebration.mp3-094712f7b227b5b3b0f1c2f5cdc55086.mp3str"
+
+[deps]
+
+source_file="res://Audio/Beachfront Celebration.mp3"
+dest_files=["res://.godot/imported/Beachfront Celebration.mp3-094712f7b227b5b3b0f1c2f5cdc55086.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

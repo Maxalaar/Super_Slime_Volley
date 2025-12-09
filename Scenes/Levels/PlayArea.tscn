@@ -1,34 +1,38 @@
-[gd_scene load_steps=32 format=3 uid="uid://4qo0vk614yt7"]
+[gd_scene load_steps=36 format=3 uid="uid://4qo0vk614yt7"]
 
-[ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_5q6f0"]
-[ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/team.gd" id="2_qnc68"]
+[ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/Levels/play_area.gd" id="1_5q6f0"]
+[ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/Characters/team.gd" id="2_qnc68"]
 [ext_resource type="PackedScene" uid="uid://d4kvpjd744jam" path="res://Scenes/Characters/Slime.tscn" id="3_5fajs"]
 [ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="4_8bkyc"]
 [ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/StaticElements/Net.tscn" id="5_ov7pv"]
-[ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="6_7qqmr"]
-[ext_resource type="Script" uid="uid://jsdlbg8rvrai" path="res://Scripts/slime_manager.gd" id="7_5mb5f"]
+[ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/Managers/debug_manager.gd" id="6_7qqmr"]
+[ext_resource type="Script" uid="uid://jsdlbg8rvrai" path="res://Scripts/Managers/slime_manager.gd" id="7_5mb5f"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="7_5mlxi"]
 [ext_resource type="PackedScene" uid="uid://chih4ohvublsk" path="res://Scenes/Characters/Cosmetics/Bowtie.tscn" id="8_hf643"]
-[ext_resource type="Script" uid="uid://jtg3oonl6bxb" path="res://Scripts/cloud_manager.gd" id="8_ov7pv"]
 [ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/MovingElements/Ball.tscn" id="8_tiel4"]
-[ext_resource type="PackedScene" uid="uid://baafpaojjb6l8" path="res://Scenes/MovingElements/Cloud.tscn" id="9_7qqmr"]
-[ext_resource type="Texture2D" uid="uid://utfu1scteg4i" path="res://Sprites/Background/palm_tree.png" id="9_ov7pv"]
-[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/score.gd" id="9_ph36x"]
+[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/UI/score.gd" id="9_ph36x"]
 [ext_resource type="PackedScene" uid="uid://bv6lijij7t58g" path="res://Scenes/Characters/Cosmetics/Flower.tscn" id="9_sa4x1"]
 [ext_resource type="PackedScene" uid="uid://d3oewgruei8w2" path="res://Scenes/Characters/Cosmetics/Glasses.tscn" id="10_2ysal"]
 [ext_resource type="PackedScene" uid="uid://d2ad6vvfutfoa" path="res://Scenes/Characters/Cosmetics/Money.tscn" id="11_4bskk"]
-[ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/pause_handler.gd" id="11_5fajs"]
+[ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/UI/pause_handler.gd" id="11_5fajs"]
 [ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="12_8bkyc"]
 [ext_resource type="PackedScene" uid="uid://dnk2m8jwmm2ax" path="res://Scenes/Characters/Cosmetics/Monocle.tscn" id="12_l2f2o"]
 [ext_resource type="PackedScene" uid="uid://bxosi37d2sfxo" path="res://Scenes/Characters/Cosmetics/Moustache.tscn" id="13_1uat6"]
 [ext_resource type="PackedScene" uid="uid://w8f1nj1351q6" path="res://Scenes/Characters/Cosmetics/Scar.tscn" id="14_7qf4v"]
 [ext_resource type="PackedScene" uid="uid://rmdl5eius5u2" path="res://Scenes/Characters/Cosmetics/Shield.tscn" id="15_3uig6"]
-[ext_resource type="Script" uid="uid://egelqqqu1xwh" path="res://Scripts/time_scale_slider.gd" id="15_5mlxi"]
+[ext_resource type="Script" uid="uid://egelqqqu1xwh" path="res://Scripts/UI/time_scale_slider.gd" id="15_5mlxi"]
 [ext_resource type="PackedScene" uid="uid://dxtkug1jkn60m" path="res://Scenes/Characters/Cosmetics/Sunglasses.tscn" id="16_4pae4"]
 [ext_resource type="PackedScene" uid="uid://dysn2vo2k53ng" path="res://Scenes/UI/CosmeticSelector.tscn" id="16_tiel4"]
 [ext_resource type="PackedScene" uid="uid://dirqdly8rc4ai" path="res://Scenes/Characters/Cosmetics/Sword.tscn" id="17_p5nar"]
 [ext_resource type="PackedScene" uid="uid://ci76xou7to1v1" path="res://Scenes/Characters/Cosmetics/TopHat.tscn" id="18_l1pl5"]
 [ext_resource type="PackedScene" uid="uid://c6gqd8ts50aeo" path="res://Scenes/Characters/Cosmetics/Trophy.tscn" id="19_dobph"]
+[ext_resource type="PackedScene" uid="uid://b7us6tq7qvel7" path="res://Scenes/Characters/Cosmetics/Christmas/CandyCane.tscn" id="20_l2f2o"]
+[ext_resource type="PackedScene" uid="uid://b67mfdokges5s" path="res://Scenes/Characters/Cosmetics/Christmas/ElfHat.tscn" id="21_1uat6"]
+[ext_resource type="PackedScene" uid="uid://dqu5onyrl57qv" path="res://Scenes/Characters/Cosmetics/Christmas/ReindeerHorns.tscn" id="22_7qf4v"]
+[ext_resource type="PackedScene" uid="uid://6x6tbn52d8dy" path="res://Scenes/Characters/Cosmetics/Christmas/SantaHat.tscn" id="23_3uig6"]
+[ext_resource type="PackedScene" uid="uid://d3gq1qjsi5mne" path="res://Scenes/Levels/Ambiences/Beach.tscn" id="27_1uat6"]
+[ext_resource type="PackedScene" uid="uid://845ls6hq1w0k" path="res://Scenes/Levels/Ambiences/Christmas.tscn" id="28_7qf4v"]
+[ext_resource type="Script" uid="uid://bu5to7o03tx01" path="res://Scripts/UI/ambience_selector.gd" id="36_3uig6"]
 
 [sub_resource type="Resource" id="Resource_aoj3m"]
 script = ExtResource("2_qnc68")
@@ -44,7 +48,7 @@ color = Color(0.0045020543, 0.1764943, 0.7884566, 1)
 name = "Right"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
 
-[node name="PlayArea" type="Node2D" node_paths=PackedStringArray("ball", "score", "walls_container", "wall_left", "wall_right", "roof")]
+[node name="PlayArea" type="Node2D" node_paths=PackedStringArray("ball", "score", "walls_container", "wall_left", "wall_right", "roof", "ambience_pivot")]
 script = ExtResource("1_5q6f0")
 ball = NodePath("Ball")
 score = NodePath("CanvasLayer/ScoreLabel")
@@ -60,6 +64,8 @@ wall_right = NodePath("WallsContainer/WallRight")
 roof = NodePath("WallsContainer/Roof")
 ground_scene = ExtResource("4_8bkyc")
 net_scene = ExtResource("5_ov7pv")
+ambience_scene_list = Array[PackedScene]([ExtResource("27_1uat6"), ExtResource("28_7qf4v")])
+ambience_pivot = NodePath("AmbiencePivot")
 
 [node name="DebugManager" type="Node" parent="."]
 script = ExtResource("6_7qqmr")
@@ -68,10 +74,11 @@ metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="SlimeManager" type="Node" parent="."]
 script = ExtResource("7_5mb5f")
-cosmetic_scene_list = Array[PackedScene]([ExtResource("8_hf643"), ExtResource("9_sa4x1"), ExtResource("10_2ysal"), ExtResource("11_4bskk"), ExtResource("12_l2f2o"), ExtResource("13_1uat6"), ExtResource("14_7qf4v"), ExtResource("15_3uig6"), ExtResource("16_4pae4"), ExtResource("17_p5nar"), ExtResource("18_l1pl5"), ExtResource("19_dobph")])
+cosmetic_scene_list = Array[PackedScene]([ExtResource("8_hf643"), ExtResource("9_sa4x1"), ExtResource("10_2ysal"), ExtResource("11_4bskk"), ExtResource("12_l2f2o"), ExtResource("13_1uat6"), ExtResource("14_7qf4v"), ExtResource("15_3uig6"), ExtResource("16_4pae4"), ExtResource("17_p5nar"), ExtResource("18_l1pl5"), ExtResource("19_dobph"), ExtResource("20_l2f2o"), ExtResource("21_1uat6"), ExtResource("22_7qf4v"), ExtResource("23_3uig6")])
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")
+control_mode = 2
 onnx_model_path = "res://Assets/Onnx/Version_1/0.onnx"
 metadata/_custom_type_script = "uid://d1gfr0v445v25"
 
@@ -91,36 +98,7 @@ scale = Vector2(200, 648)
 position = Vector2(0, -524)
 scale = Vector2(1152, 200)
 
-[node name="CloudManager" type="Node2D" parent="."]
-script = ExtResource("8_ov7pv")
-cloud_scene = ExtResource("9_7qqmr")
-speed_minimum = 20.0
-speed_maximum = 30.0
-scale_minimum = 0.6
-scale_maximum = 1.0
-height_coefficient_minimum = 0.0
-cooldown_minimum = 5.0
-cooldown_maximum = 20.0
-clouds_on_spawn = 3
-metadata/_custom_type_script = "uid://jtg3oonl6bxb"
-
-[node name="PalmTree2" type="Sprite2D" parent="."]
-position = Vector2(-529, 39.999985)
-rotation = -2.4037282
-scale = Vector2(0.6, -0.6)
-texture = ExtResource("9_ov7pv")
-
-[node name="PalmTree_Left" type="Sprite2D" parent="."]
-position = Vector2(-524, 204.00003)
-rotation = 0.40795472
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("9_ov7pv")
-
-[node name="PalmTree_Right" type="Sprite2D" parent="."]
-position = Vector2(555, 151)
-rotation = -0.1781002
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("9_ov7pv")
+[node name="AmbiencePivot" type="Node2D" parent="."]
 
 [node name="Ball" parent="." instance=ExtResource("8_tiel4")]
 z_index = 1
@@ -163,13 +141,36 @@ input_selector_scene = ExtResource("12_8bkyc")
 cosmetic_selector_scene = ExtResource("16_tiel4")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AmbienceSelector" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel" node_paths=PackedStringArray("popup_menu")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 79.0
+offset_right = 64.0
+offset_bottom = 122.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("36_3uig6")
+popup_menu = NodePath("MenuBar/PopupMenu")
+
+[node name="MenuBar" type="MenuBar" parent="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+
+[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector/MenuBar"]
+title = "Ambience"
+theme_override_font_sizes/font_size = 25
 
 [node name="InputSelectorsContainer" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel"]
 layout_mode = 1

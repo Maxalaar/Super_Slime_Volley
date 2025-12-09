@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7us6tq7qvel7"]
+
+[ext_resource type="Texture2D" uid="uid://cndvsgc8s5b22" path="res://Sprites/Cosmetics/Christmas/candy_cane.png" id="1_lvbvb"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_0dvk1"]
+
+[node name="CandyCane" type="Sprite2D"]
+position = Vector2(-44, -26.999998)
+rotation = -0.60314035
+scale = Vector2(0.109375, 0.109375)
+texture = ExtResource("1_lvbvb")
+script = ExtResource("2_0dvk1")

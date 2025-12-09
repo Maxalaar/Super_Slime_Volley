@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6gqd8ts50aeo"]
 
 [ext_resource type="Texture2D" uid="uid://duldbupqm4lqn" path="res://Sprites/Cosmetics/trophy.png" id="1_25che"]
-[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/cosmetic.gd" id="2_71u4g"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_71u4g"]
 
 [node name="Trophy" type="Sprite2D"]
 position = Vector2(-43, -29.000006)

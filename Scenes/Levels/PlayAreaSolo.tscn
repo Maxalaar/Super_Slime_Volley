@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://be7gdjxqglgj2"]
 
-[ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/play_area.gd" id="1_uywhs"]
-[ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/debug_manager.gd" id="2_0tkav"]
+[ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/Levels/play_area.gd" id="1_uywhs"]
+[ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/Managers/debug_manager.gd" id="2_0tkav"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="3_pm82k"]
 [ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="4_j82sc"]
 [ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/MovingElements/Ball.tscn" id="5_uywhs"]
-[ext_resource type="Script" uid="uid://b4t2c8j02mp2w" path="res://Scripts/slime.gd" id="6_1ef2e"]
-[ext_resource type="Script" uid="uid://0hnx7x0646ka" path="res://Scripts/slime_ai_controller.gd" id="7_f1csb"]
-[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/score.gd" id="8_g66mn"]
+[ext_resource type="Script" uid="uid://b4t2c8j02mp2w" path="res://Scripts/Characters/slime.gd" id="6_1ef2e"]
+[ext_resource type="Script" uid="uid://0hnx7x0646ka" path="res://Scripts/Characters/slime_ai_controller.gd" id="7_f1csb"]
+[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/UI/score.gd" id="8_g66mn"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_jdpsq"]
 points = PackedVector2Array(50, 0, 49.38442, -7.8217235, 47.552826, -15.45085, 44.550327, -22.699526, 40.45085, -29.389263, 35.35534, -35.35534, 29.389263, -40.45085, 22.699526, -44.550327, 15.45085, -47.552826, 7.8217235, -49.38442, 3.0615159e-15, -50, -7.8217235, -49.38442, -15.45085, -47.552826, -22.699526, -44.550327, -29.389263, -40.45085, -35.35534, -35.35534, -40.45085, -29.389263, -44.550327, -22.699526, -47.552826, -15.45085, -49.38442, -7.8217235, -50, -6.1230318e-15)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b67mfdokges5s"]
+
+[ext_resource type="Texture2D" uid="uid://c1o6nkf4wuyon" path="res://Sprites/Cosmetics/Christmas/elf_hat.png" id="1_yvmo7"]
+[ext_resource type="Script" uid="uid://dts5203s1esyj" path="res://Scripts/Characters/cosmetic.gd" id="2_3lxt6"]
+
+[node name="ElfHat" type="Sprite2D"]
+position = Vector2(1, -64)
+scale = Vector2(0.07421874, 0.07177736)
+texture = ExtResource("1_yvmo7")
+script = ExtResource("2_3lxt6")
