@@ -8,8 +8,17 @@ var input_mode_list : Array[String]
 
 func _ready() -> void:
 	detect_controllers(0, true)
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	Input.joy_connection_changed.connect(detect_controllers)
+
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("set_fullscreen"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
 
 func detect_controllers(device : int, connected : bool):
