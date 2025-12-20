@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://845ls6hq1w0k"]
 
-[ext_resource type="PackedScene" uid="uid://dl6j4wwtiphw6" path="res://Scenes/Levels/CloudManager.tscn" id="1_3oy4t"]
+[ext_resource type="PackedScene" uid="uid://dl6j4wwtiphw6" path="res://Scenes/LevelDesign/Ambiences/CloudManager.tscn" id="1_3oy4t"]
 [ext_resource type="Texture2D" uid="uid://cgfoaflnef4bc" path="res://Sprites/Background/pine_tree.webp" id="1_ntlbe"]
 [ext_resource type="Texture2D" uid="uid://d4lx5fhfjepy7" path="res://Sprites/Background/snowman.png" id="2_3oy4t"]
 [ext_resource type="Texture2D" uid="uid://srl58tg8oo5i" path="res://Sprites/Background/snowball.png" id="3_gpj8e"]

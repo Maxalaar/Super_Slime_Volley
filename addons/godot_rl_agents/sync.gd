@@ -51,10 +51,14 @@ var _obs_space_training: Array[Dictionary] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	await get_tree().root.ready
+	get_tree().root.ready.connect(on_ready)
+	get_tree().scene_changed.connect(on_ready)
+
+
+func on_ready():
 	get_tree().set_pause(true)
 	_initialize()
-	await get_tree().create_timer(1.0).timeout
+	#await get_tree().create_timer(1.0).timeout
 	get_tree().set_pause(false)
 
 

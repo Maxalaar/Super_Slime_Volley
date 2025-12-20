@@ -22,13 +22,16 @@ class_name Slime
 @export_group("AI Controller")
 @export var ai_controller : SlimeAiController
 
+@export_group("Multiplayer Synchronization")
+@export var slime_input_controller : SlimeInputController
+@export var input_mode : String
+@export var gamepad_index : int = 0
+
 var is_on_ground : bool = false
 var initial_position : Vector2
 var team : Team
 var current_ball_touch_number : int = 0
 
-var input_mode : String
-var gamepad_index : int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -54,27 +57,27 @@ func generate_collision_shape():
 	polygon_2d.color = color
 #endregion
 
+
+func _enter_tree() -> void:
+	if is_multiplayer_authority() == false:
+		process_mode = Node.PROCESS_MODE_DISABLED
+
+
 func _init() -> void:
 	SignalManager.game_over.connect(_on_game_over)
 	SignalManager.reset_game.connect(_on_reset_game)
 	SignalManager.ball_hit_different_team.connect(_on_ball_hit_different_team)
+
 
 func _ready() -> void:
 	generate_collision_shape()
 	
 	ai_controller.init(self)
 	initial_position = global_position
-	
 
-func _process(delta: float) -> void:
-	update_inputs()
-	
-	#var cosmetic_name : String
-	#if current_cosmetic == null:
-		#cosmetic_name = "No Cosmetic"
-	#else:
-		#cosmetic_name = current_cosmetic.name
-	#print("slime " + cosmetic_name + " : " + policy_name)
+
+#func _process(delta: float) -> void:
+	#update_inputs()
 
 
 func _physics_process(delta: float) -> void:
@@ -93,6 +96,7 @@ func _physics_process(delta: float) -> void:
 			if node.is_in_group("ground"):
 				is_on_ground = true
 
+
 func set_input_mode(input_mode : String):
 	self.input_mode = input_mode
 	
@@ -101,7 +105,11 @@ func set_input_mode(input_mode : String):
 	else:
 		gamepad_index = -1
 
+
 func update_inputs():
+	if is_multiplayer_authority() == false:
+		return
+	
 	velocity.x = 0
 	
 	if gamepad_index == -1:
@@ -122,7 +130,10 @@ func update_inputs():
 			InputManager.is_gamepad_moving_right(gamepad_index),\
 			InputManager.is_gamepad_jumping(gamepad_index))
 
+
 func move(is_moving_left : bool, is_moving_right : bool, is_jumping : bool):
+	velocity.x = 0
+	
 	if is_moving_left:
 		velocity.x = -speed
 	if is_moving_right:
@@ -130,28 +141,34 @@ func move(is_moving_left : bool, is_moving_right : bool, is_jumping : bool):
 	if is_jumping:
 		jump()
 
+
 func jump():
 	if is_on_ground == false:
 		return
 	
 	velocity.y = -jump_force
-	
+
+
 func on_ball_touched(ball : Ball):
 	current_ball_touch_number += 1
 	update_transparency()
 	if current_ball_touch_number >= maximum_ball_touch_number:
 		SignalManager.emit_slime_becomes_ignored_by_balls(self)
 
+
 func reset_ball_touch():
 	current_ball_touch_number = 0
 	update_transparency()
 
+
 func update_transparency():
 	polygon_2d.color.a = transparency_minimum + (transparency_maximum - transparency_minimum) * (1 - float(current_ball_touch_number) / float(maximum_ball_touch_number))
+
 
 func _on_game_over():
 	ai_controller.done = true
 	ai_controller.reset()
+
 
 func _on_reset_game(width : float, height : float):
 	var random_factor : float = randf_range(-1, 1)
@@ -161,8 +178,10 @@ func _on_reset_game(width : float, height : float):
 	global_position = initial_position
 	reset_ball_touch()
 
+
 func _on_ball_hit_different_team():
 	reset_ball_touch()
+
 
 func get_ai_information() -> Array:
 	var slime_position = global_position
@@ -185,6 +204,7 @@ func get_ai_information() -> Array:
 	
 	return information
 
+
 func set_cosmetic(cosmetic_scene : PackedScene):
 	if current_cosmetic != null:
 		current_cosmetic.queue_free()
@@ -199,3 +219,6 @@ func set_cosmetic(cosmetic_scene : PackedScene):
 			behind_eyes_pivot.add_child(cosmetic)
 		Cosmetic.PivotType.InFront:
 			in_front_pivot.add_child(cosmetic)
+
+
+#func set_multiplayer_authority(id : int)

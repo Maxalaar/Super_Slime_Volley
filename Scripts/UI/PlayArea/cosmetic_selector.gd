@@ -3,8 +3,7 @@ class_name CosmeticSelector
 
 @export var popup_menu : PopupMenu
 
-var team : Team
-var slime_index : int
+var slime : Slime
 
 var cosmetics_dictionary : Dictionary[String, String]
 
@@ -21,5 +20,4 @@ func _on_index_pressed(index : int):
 	var text : String = popup_menu.get_item_text(index)
 	popup_menu.title = text
 	
-	var slime : Slime = team.slime_list[slime_index]
 	slime.set_cosmetic(load(cosmetics_dictionary[text]))

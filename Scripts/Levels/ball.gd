@@ -41,6 +41,12 @@ func generate_collision_shape():
 	polygon_2d.color = color
 #endregion
 
+
+func _enter_tree() -> void:
+	if is_multiplayer_authority() == false:
+		process_mode = Node.PROCESS_MODE_DISABLED
+
+
 func _init() -> void:
 	SignalManager.game_over.connect(_on_game_over)
 	SignalManager.reset_game.connect(_on_reset_game)

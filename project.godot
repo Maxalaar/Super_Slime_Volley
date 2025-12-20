@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Super_Slime_Volley"
-run/main_scene="uid://4qo0vk614yt7"
+run/main_scene="uid://b22uoimnnhhwi"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,10 +20,10 @@ config/icon="res://icon.svg"
 SignalManager="*res://Scripts/Managers/signal_manager.gd"
 TimeManager="*res://Scripts/Managers/time_manager.gd"
 InputManager="*res://Scripts/Managers/input_manager.gd"
+NetworkManager="*res://Scripts/Network/network_manager.gd"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -104,4 +104,5 @@ set_fullscreen={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.48877347, 0.7481158, 0.943185, 1)

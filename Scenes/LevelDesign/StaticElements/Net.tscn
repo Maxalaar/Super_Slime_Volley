@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ko5rb3a3wf71"]
 
 [ext_resource type="Script" uid="uid://t7d37hns1flk" path="res://Scripts/Levels/wall.gd" id="1_8gsga"]
-[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="2_xtwcn"]
+[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/LevelDesign/StaticElements/Wall.tscn" id="2_xtwcn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jgoa1"]
 

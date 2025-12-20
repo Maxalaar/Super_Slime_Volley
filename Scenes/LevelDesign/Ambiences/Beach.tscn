@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3gq1qjsi5mne"]
 
 [ext_resource type="Texture2D" uid="uid://utfu1scteg4i" path="res://Sprites/Background/palm_tree.png" id="1_8ydma"]
-[ext_resource type="PackedScene" uid="uid://dl6j4wwtiphw6" path="res://Scenes/Levels/CloudManager.tscn" id="1_37121"]
+[ext_resource type="PackedScene" uid="uid://dl6j4wwtiphw6" path="res://Scenes/LevelDesign/Ambiences/CloudManager.tscn" id="1_37121"]
 [ext_resource type="AudioStream" uid="uid://bxmdqabjnhfl5" path="res://Audio/Beach/Beachfront Celebration.mp3" id="3_yb24k"]
 
 [node name="Beach" type="Node2D"]

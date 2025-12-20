@@ -11,5 +11,8 @@ func _process(delta: float) -> void:
 
 
 func move_pupil():
+	if PlayArea.instance == null:
+		return
+	
 	var direction : Vector2 = (PlayArea.instance.ball.global_position - slime.global_position).normalized()
 	pupil.global_position = global_position + direction * pupil_movement_coefficient

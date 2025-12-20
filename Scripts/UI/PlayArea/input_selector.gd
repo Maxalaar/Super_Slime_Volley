@@ -2,10 +2,8 @@ extends Control
 class_name InputSelector
 
 @export var popup_menu : PopupMenu
-@export var label : Label
 
-var team : Team
-var slime_index : int
+var slime : Slime
 
 func _ready() -> void:
 	popup_menu.index_pressed.connect(_on_index_pressed)
@@ -20,7 +18,6 @@ func _on_index_pressed(index : int):
 	var text : String = popup_menu.get_item_text(index)
 	popup_menu.title = text
 	
-	var slime : Slime = team.slime_list[slime_index]
 	slime.set_input_mode(text)
 
 

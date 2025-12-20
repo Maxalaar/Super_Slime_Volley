@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8kwj8ojqi7g8"]
+
+[ext_resource type="Script" uid="uid://tirqh8hanhms" path="res://Scripts/UI/PlayArea/slime_settings.gd" id="1_f5080"]
+[ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="1_pp28a"]
+[ext_resource type="PackedScene" uid="uid://dysn2vo2k53ng" path="res://Scenes/UI/CosmeticSelector.tscn" id="2_f5080"]
+[ext_resource type="PackedScene" uid="uid://bis6ji222i5by" path="res://Scenes/UI/PeerSelector.tscn" id="4_3fwua"]
+
+[node name="SlimeSettings" type="VBoxContainer" node_paths=PackedStringArray("slime_name_label", "input_selector", "cosmetic_selector", "peer_selector")]
+size_flags_horizontal = 3
+script = ExtResource("1_f5080")
+slime_name_label = NodePath("SlimeNameLabel")
+input_selector = NodePath("InputSelector")
+cosmetic_selector = NodePath("CosmeticSelector")
+peer_selector = NodePath("PeerSelector")
+
+[node name="SlimeNameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Slime 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputSelector" parent="." instance=ExtResource("1_pp28a")]
+layout_mode = 2
+
+[node name="CosmeticSelector" parent="." instance=ExtResource("2_f5080")]
+layout_mode = 2
+
+[node name="PeerSelector" parent="." instance=ExtResource("4_3fwua")]
+layout_mode = 2

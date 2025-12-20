@@ -3,26 +3,24 @@
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/Levels/play_area.gd" id="1_5q6f0"]
 [ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/Characters/team.gd" id="2_qnc68"]
 [ext_resource type="PackedScene" uid="uid://d4kvpjd744jam" path="res://Scenes/Characters/Slime.tscn" id="3_5fajs"]
-[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/StaticElements/Wall.tscn" id="4_8bkyc"]
-[ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/StaticElements/Net.tscn" id="5_ov7pv"]
+[ext_resource type="PackedScene" uid="uid://c081a8yloou75" path="res://Scenes/LevelDesign/StaticElements/Wall.tscn" id="4_8bkyc"]
+[ext_resource type="PackedScene" uid="uid://ko5rb3a3wf71" path="res://Scenes/LevelDesign/StaticElements/Net.tscn" id="5_ov7pv"]
 [ext_resource type="Script" uid="uid://ct3hnchvwd3vy" path="res://Scripts/Managers/debug_manager.gd" id="6_7qqmr"]
 [ext_resource type="Script" uid="uid://jsdlbg8rvrai" path="res://Scripts/Managers/slime_manager.gd" id="7_5mb5f"]
 [ext_resource type="Script" uid="uid://d1gfr0v445v25" path="res://addons/godot_rl_agents/sync.gd" id="7_5mlxi"]
 [ext_resource type="PackedScene" uid="uid://chih4ohvublsk" path="res://Scenes/Characters/Cosmetics/Bowtie.tscn" id="8_hf643"]
-[ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/MovingElements/Ball.tscn" id="8_tiel4"]
-[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/UI/score.gd" id="9_ph36x"]
+[ext_resource type="PackedScene" uid="uid://lt75b2xcd67t" path="res://Scenes/LevelDesign/Ball.tscn" id="8_tiel4"]
+[ext_resource type="Script" uid="uid://bpdikbdkjwhfu" path="res://Scripts/UI/PlayArea/score.gd" id="9_ph36x"]
 [ext_resource type="PackedScene" uid="uid://bv6lijij7t58g" path="res://Scenes/Characters/Cosmetics/Flower.tscn" id="9_sa4x1"]
 [ext_resource type="PackedScene" uid="uid://d3oewgruei8w2" path="res://Scenes/Characters/Cosmetics/Glasses.tscn" id="10_2ysal"]
 [ext_resource type="PackedScene" uid="uid://d2ad6vvfutfoa" path="res://Scenes/Characters/Cosmetics/Money.tscn" id="11_4bskk"]
-[ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/UI/pause_handler.gd" id="11_5fajs"]
-[ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="12_8bkyc"]
+[ext_resource type="Script" uid="uid://bgq1xmrlnqrkm" path="res://Scripts/UI/PlayArea/pause_handler.gd" id="11_5fajs"]
 [ext_resource type="PackedScene" uid="uid://dnk2m8jwmm2ax" path="res://Scenes/Characters/Cosmetics/Monocle.tscn" id="12_l2f2o"]
 [ext_resource type="PackedScene" uid="uid://bxosi37d2sfxo" path="res://Scenes/Characters/Cosmetics/Moustache.tscn" id="13_1uat6"]
 [ext_resource type="PackedScene" uid="uid://w8f1nj1351q6" path="res://Scenes/Characters/Cosmetics/Scar.tscn" id="14_7qf4v"]
 [ext_resource type="PackedScene" uid="uid://rmdl5eius5u2" path="res://Scenes/Characters/Cosmetics/Shield.tscn" id="15_3uig6"]
-[ext_resource type="Script" uid="uid://egelqqqu1xwh" path="res://Scripts/UI/time_scale_slider.gd" id="15_5mlxi"]
+[ext_resource type="Script" uid="uid://egelqqqu1xwh" path="res://Scripts/UI/PlayArea/time_scale_slider.gd" id="15_5mlxi"]
 [ext_resource type="PackedScene" uid="uid://dxtkug1jkn60m" path="res://Scenes/Characters/Cosmetics/Sunglasses.tscn" id="16_4pae4"]
-[ext_resource type="PackedScene" uid="uid://dysn2vo2k53ng" path="res://Scenes/UI/CosmeticSelector.tscn" id="16_tiel4"]
 [ext_resource type="PackedScene" uid="uid://dirqdly8rc4ai" path="res://Scenes/Characters/Cosmetics/Sword.tscn" id="17_p5nar"]
 [ext_resource type="PackedScene" uid="uid://ci76xou7to1v1" path="res://Scenes/Characters/Cosmetics/TopHat.tscn" id="18_l1pl5"]
 [ext_resource type="PackedScene" uid="uid://c6gqd8ts50aeo" path="res://Scenes/Characters/Cosmetics/Trophy.tscn" id="19_dobph"]
@@ -30,31 +28,37 @@
 [ext_resource type="PackedScene" uid="uid://b67mfdokges5s" path="res://Scenes/Characters/Cosmetics/Christmas/ElfHat.tscn" id="21_1uat6"]
 [ext_resource type="PackedScene" uid="uid://dqu5onyrl57qv" path="res://Scenes/Characters/Cosmetics/Christmas/ReindeerHorns.tscn" id="22_7qf4v"]
 [ext_resource type="PackedScene" uid="uid://6x6tbn52d8dy" path="res://Scenes/Characters/Cosmetics/Christmas/SantaHat.tscn" id="23_3uig6"]
-[ext_resource type="PackedScene" uid="uid://d3gq1qjsi5mne" path="res://Scenes/Levels/Ambiences/Beach.tscn" id="27_1uat6"]
-[ext_resource type="PackedScene" uid="uid://845ls6hq1w0k" path="res://Scenes/Levels/Ambiences/Christmas.tscn" id="28_7qf4v"]
+[ext_resource type="PackedScene" uid="uid://d3gq1qjsi5mne" path="res://Scenes/LevelDesign/Ambiences/Beach.tscn" id="27_1uat6"]
+[ext_resource type="PackedScene" uid="uid://845ls6hq1w0k" path="res://Scenes/LevelDesign/Ambiences/Christmas.tscn" id="28_7qf4v"]
+[ext_resource type="PackedScene" uid="uid://c8kwj8ojqi7g8" path="res://Scenes/UI/SlimeSettings.tscn" id="30_3uig6"]
 [ext_resource type="Texture2D" uid="uid://brlrgjopgrl0n" path="res://Sprites/UI/turtle.png" id="33_1uat6"]
 [ext_resource type="Texture2D" uid="uid://b0kvb3jrjqlga" path="res://Sprites/UI/bunny.png" id="35_7qf4v"]
-[ext_resource type="Script" uid="uid://bu5to7o03tx01" path="res://Scripts/UI/ambience_selector.gd" id="36_3uig6"]
+[ext_resource type="Script" uid="uid://bu5to7o03tx01" path="res://Scripts/UI/PlayArea/ambience_selector.gd" id="36_3uig6"]
 [ext_resource type="Texture2D" uid="uid://dv0wwfh0yj4lw" path="res://Sprites/UI/dumb.png" id="36_4pae4"]
-[ext_resource type="Script" uid="uid://diyiomlhnvpfc" path="res://Scripts/UI/repeat_action_slider.gd" id="37_4pae4"]
+[ext_resource type="Script" uid="uid://diyiomlhnvpfc" path="res://Scripts/UI/PlayArea/repeat_action_slider.gd" id="37_4pae4"]
 [ext_resource type="Texture2D" uid="uid://csk1rf33eykvc" path="res://Sprites/UI/ai_brain.png" id="37_p5nar"]
 
 [sub_resource type="Resource" id="Resource_aoj3m"]
 script = ExtResource("2_qnc68")
 slime_number = 2
 color = Color(0.5333242, 1.0949746e-06, 2.8878452e-07, 1)
-name = "Left"
+name = "Red"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
 
 [sub_resource type="Resource" id="Resource_6cl5q"]
 script = ExtResource("2_qnc68")
 slime_number = 2
 color = Color(0.0045020543, 0.1764943, 0.7884566, 1)
-name = "Right"
+name = "Blue"
 metadata/_custom_type_script = "uid://clyb11d4b2uxu"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bskk"]
 bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.92156863)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4pae4"]
+properties/0/path = NodePath(".:current_ambience_index")
+properties/0/spawn = true
+properties/0/replication_mode = 2
 
 [node name="PlayArea" type="Node2D" node_paths=PackedStringArray("ball", "score", "walls_container", "wall_left", "wall_right", "roof", "ambience_pivot")]
 script = ExtResource("1_5q6f0")
@@ -145,8 +149,7 @@ grow_vertical = 2
 script = ExtResource("11_5fajs")
 pause_panel = NodePath("PausePanel")
 input_selectors_container = NodePath("PausePanel/InputSelectorsContainer")
-input_selector_scene = ExtResource("12_8bkyc")
-cosmetic_selector_scene = ExtResource("16_tiel4")
+slime_settings_scene = ExtResource("30_3uig6")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]
 layout_mode = 1
@@ -157,7 +160,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4bskk")
 
-[node name="AmbienceSelector" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel" node_paths=PackedStringArray("popup_menu")]
+[node name="AmbienceSelector" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel" node_paths=PackedStringArray("popup_menu", "menu_bar")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -171,6 +174,7 @@ size_flags_horizontal = 3
 alignment = 1
 script = ExtResource("36_3uig6")
 popup_menu = NodePath("MenuBar/PopupMenu")
+menu_bar = NodePath("MenuBar")
 
 [node name="MenuBar" type="MenuBar" parent="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector"]
 layout_mode = 2
@@ -180,6 +184,9 @@ theme_override_font_sizes/font_size = 25
 [node name="PopupMenu" type="PopupMenu" parent="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector/MenuBar"]
 title = "Ambience"
 theme_override_font_sizes/font_size = 25
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector"]
+replication_config = SubResource("SceneReplicationConfig_4pae4")
 
 [node name="InputSelectorsContainer" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel"]
 layout_mode = 1
@@ -257,3 +264,5 @@ sync = NodePath("../../../../../../Sync")
 layout_mode = 2
 texture = ExtResource("37_p5nar")
 expand_mode = 2
+
+[connection signal="delta_synchronized" from="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector/MultiplayerSynchronizer" to="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector" method="_on_ambience_synchronized"]

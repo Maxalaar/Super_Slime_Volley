@@ -40,12 +40,14 @@ func _init() -> void:
 	instance = self
 
 
+func _enter_tree() -> void:
+	generate_play_area()
+	spawn_slimes()
+
+
 func _ready() -> void:
 	SignalManager.game_over.connect(_on_game_over)
 	SignalManager.point_scored.connect(_on_point_scored)
-	
-	generate_play_area()
-	spawn_slimes()
 	
 	score.set_team_list(team_list)
 	
@@ -111,14 +113,16 @@ func spawn_slimes():
 	for team : Team in team_list:
 		for i in team.slime_number:
 			var slime : Slime = slime_scene.instantiate() as Slime
+			slime.name = team.name + " " + str(i + 1)
 			slime.team = team
 			slime.ai_controller.policy_name = team.name.to_snake_case() + '_' + str(i)
 			team.slime_list.append(slime)
-			
+			SignalManager.emit_slime_spawn(slime)
 			add_child(slime)
-			slime.polygon_2d.color = team.color
+			slime.color = team.color
 
 
+@rpc("authority", "call_local", "reliable")
 func set_ambience(ambience : PackedScene):
 	if current_ambience != null:
 		current_ambience.queue_free()

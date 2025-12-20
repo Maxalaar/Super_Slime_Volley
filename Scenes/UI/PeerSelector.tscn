@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bis6ji222i5by"]
+
+[ext_resource type="Script" uid="uid://c018hcaub8p6n" path="res://Scripts/UI/Network/peer_selector.gd" id="1_kigce"]
+
+[node name="PeerSelector" type="VBoxContainer" node_paths=PackedStringArray("popup_menu", "menu_bar")]
+size_flags_horizontal = 4
+script = ExtResource("1_kigce")
+popup_menu = NodePath("MenuBar/PopupMenu")
+menu_bar = NodePath("MenuBar")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 2
+
+[node name="PopupMenu" type="PopupMenu" parent="MenuBar"]
+title = "Peer"
