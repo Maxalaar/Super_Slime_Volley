@@ -4,6 +4,7 @@ class_name PauseHandler
 @export var pause_panel : Control
 @export var input_selectors_container : Control
 @export var slime_settings_scene : PackedScene
+@export var hide_if_client_list : Array[Control] 
 
 func _ready() -> void:
 	pause_panel.hide()
@@ -13,9 +14,14 @@ func _ready() -> void:
 	
 	for team in PlayArea.instance.team_list:
 		for slime in team.slime_list:
-			var slime_settings : SlimeSettings = slime_settings_scene.instantiate() as SlimeSettings
-			slime_settings.init(slime)
-			input_selectors_container.add_child(slime_settings)
+			if multiplayer.is_server():
+				var slime_settings : SlimeSettings = slime_settings_scene.instantiate() as SlimeSettings
+				slime_settings.init(slime)
+				input_selectors_container.add_child(slime_settings)
+	
+	if multiplayer.is_server() == false:
+		for control in hide_if_client_list:
+			control.hide()
 
 func _on_game_paused():
 	pause_panel.show()

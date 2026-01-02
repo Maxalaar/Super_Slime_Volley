@@ -139,7 +139,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_ph36x")
 
-[node name="PauseHandler" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pause_panel", "input_selectors_container")]
+[node name="PauseHandler" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pause_panel", "input_selectors_container", "hide_if_client_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,6 +150,7 @@ script = ExtResource("11_5fajs")
 pause_panel = NodePath("PausePanel")
 input_selectors_container = NodePath("PausePanel/InputSelectorsContainer")
 slime_settings_scene = ExtResource("30_3uig6")
+hide_if_client_list = [NodePath("PausePanel/AmbienceSelector"), NodePath("PausePanel/VBoxContainer")]
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]
 layout_mode = 1
