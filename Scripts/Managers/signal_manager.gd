@@ -59,3 +59,8 @@ func emit_slime_spawn(slime : Slime):
 signal slime_destroy(slime : Slime)
 func emit_slime_destroy(slime : Slime):
 	slime_destroy.emit(slime)
+
+signal slime_authority_change(peer_id : int, slime_name : String)
+@rpc("authority", "call_local", "reliable")
+func emit_slime_authority_change(peer_id : int, slime_name : String):
+	slime_authority_change.emit(peer_id, slime_name)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://qytu7161ubja"]
+
+[ext_resource type="Script" uid="uid://tirqh8hanhms" path="res://Scripts/UI/PlayArea/slime_settings.gd" id="1_gnleh"]
+[ext_resource type="PackedScene" uid="uid://d4al6stor17xf" path="res://Scenes/UI/InputSelector.tscn" id="2_srvw6"]
+[ext_resource type="PackedScene" uid="uid://dysn2vo2k53ng" path="res://Scenes/UI/CosmeticSelector.tscn" id="3_18juh"]
+
+[node name="SlimeSettings" type="VBoxContainer" node_paths=PackedStringArray("slime_name_label", "input_selector", "cosmetic_selector", "peer_selector")]
+size_flags_horizontal = 3
+script = ExtResource("1_gnleh")
+slime_name_label = NodePath("SlimeNameLabel")
+input_selector = NodePath("InputSelector")
+cosmetic_selector = NodePath("CosmeticSelector")
+peer_selector = NodePath("")
+
+[node name="SlimeNameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Slime 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputSelector" parent="." instance=ExtResource("2_srvw6")]
+layout_mode = 2
+
+[node name="CosmeticSelector" parent="." instance=ExtResource("3_18juh")]
+layout_mode = 2

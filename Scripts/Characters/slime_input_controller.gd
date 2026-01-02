@@ -4,6 +4,16 @@ class_name SlimeInputController
 @export var slime : Slime
 
 
+func _init():
+	var config : Dictionary = { 
+		"rpc_mode" : MultiplayerAPI.RPCMode.RPC_MODE_ANY_PEER, 
+		"transfer_mode" : MultiplayerPeer.TransferMode.TRANSFER_MODE_RELIABLE, 
+		"call_local" : true, 
+		"channel" : 0 
+	}
+	rpc_config("set_multiplayer_authority", config)
+
+
 func _process(delta: float) -> void:
 	update_inputs()
 

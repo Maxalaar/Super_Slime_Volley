@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://4qo0vk614yt7"]
+[gd_scene load_steps=43 format=3 uid="uid://4qo0vk614yt7"]
 
 [ext_resource type="Script" uid="uid://bytoo1w48p0i5" path="res://Scripts/Levels/play_area.gd" id="1_5q6f0"]
 [ext_resource type="Script" uid="uid://clyb11d4b2uxu" path="res://Scripts/Characters/team.gd" id="2_qnc68"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://d3gq1qjsi5mne" path="res://Scenes/LevelDesign/Ambiences/Beach.tscn" id="27_1uat6"]
 [ext_resource type="PackedScene" uid="uid://845ls6hq1w0k" path="res://Scenes/LevelDesign/Ambiences/Christmas.tscn" id="28_7qf4v"]
 [ext_resource type="PackedScene" uid="uid://c8kwj8ojqi7g8" path="res://Scenes/UI/SlimeSettings.tscn" id="30_3uig6"]
+[ext_resource type="PackedScene" uid="uid://qytu7161ubja" path="res://Scenes/UI/SlimeSettingsClient.tscn" id="31_4pae4"]
 [ext_resource type="Texture2D" uid="uid://brlrgjopgrl0n" path="res://Sprites/UI/turtle.png" id="33_1uat6"]
 [ext_resource type="Texture2D" uid="uid://b0kvb3jrjqlga" path="res://Sprites/UI/bunny.png" id="35_7qf4v"]
 [ext_resource type="Script" uid="uid://bu5to7o03tx01" path="res://Scripts/UI/PlayArea/ambience_selector.gd" id="36_3uig6"]
@@ -150,6 +151,7 @@ script = ExtResource("11_5fajs")
 pause_panel = NodePath("PausePanel")
 input_selectors_container = NodePath("PausePanel/InputSelectorsContainer")
 slime_settings_scene = ExtResource("30_3uig6")
+slime_settings_client_scene = ExtResource("31_4pae4")
 hide_if_client_list = [NodePath("PausePanel/AmbienceSelector"), NodePath("PausePanel/VBoxContainer")]
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]

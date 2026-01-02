@@ -19,16 +19,6 @@ func _ready() -> void:
 		menu_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
-func init():
-	var config : Dictionary = { 
-		"rpc_mode" : MultiplayerAPI.RPCMode.RPC_MODE_ANY_PEER, 
-		"transfer_mode" : MultiplayerPeer.TransferMode.TRANSFER_MODE_RELIABLE, 
-		"call_local" : true, 
-		"channel" : 0 
-	}
-	slime.slime_input_controller.rpc_config("set_multiplayer_authority", config)
-
-
 func update_popup_menu():
 	popup_menu.clear()
 	
@@ -39,11 +29,12 @@ func update_popup_menu():
 
 
 func _on_index_pressed(index : int):
-	var text : String = popup_menu.get_item_text(index)
-	popup_menu.title = text
+	var peer_id : int = popup_menu.get_item_text(index).to_int()
+	popup_menu.title = str(peer_id)
 	
-	slime.slime_input_controller.set_multiplayer_authority(popup_menu.get_item_text(index).to_int())
-	slime.slime_input_controller.set_multiplayer_authority.rpc(popup_menu.get_item_text(index).to_int())
+	slime.slime_input_controller.set_multiplayer_authority(peer_id)
+	slime.slime_input_controller.set_multiplayer_authority.rpc(peer_id)
+	SignalManager.emit_slime_authority_change.rpc(peer_id, slime.name)
 
 
 func _on_peer_connected(id : int):

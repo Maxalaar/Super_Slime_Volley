@@ -19,4 +19,3 @@ func init(slime : Slime):
 	
 	if peer_selector != null:
 		peer_selector.slime = slime
-		peer_selector.init()
