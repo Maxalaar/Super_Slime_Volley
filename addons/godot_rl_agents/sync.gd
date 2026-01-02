@@ -1,4 +1,5 @@
 extends Node
+class_name Sync
 
 # --fixed-fps 2000 --disable-render-loop
 

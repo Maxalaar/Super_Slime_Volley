@@ -1,6 +1,8 @@
 extends Slider
 class_name TimeScaleSlider
 
+@export var sync : Sync
+
 var time_scale : float = 1.0
 
 func _ready() -> void:
@@ -10,5 +12,5 @@ func _value_changed(new_value: float) -> void:
 	time_scale = new_value
 
 func _on_game_unpaused():
-	Engine.physics_ticks_per_second = roundi(time_scale * 60)
 	Engine.time_scale = time_scale
+	sync.action_repeat = roundi(sync.action_repeat / time_scale)

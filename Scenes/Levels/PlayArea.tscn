@@ -225,7 +225,7 @@ texture = ExtResource("33_1uat6")
 expand_mode = 2
 flip_h = true
 
-[node name="TimeScaleSlider" type="HSlider" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/TimeScale"]
+[node name="TimeScaleSlider" type="HSlider" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/TimeScale" node_paths=PackedStringArray("sync")]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 size_flags_vertical = 1
@@ -233,6 +233,7 @@ max_value = 2.0
 step = 0.01
 value = 1.0
 script = ExtResource("15_5mlxi")
+sync = NodePath("../../../../../../Sync")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PauseHandler/PausePanel/VBoxContainer/TimeScale"]
 layout_mode = 2
