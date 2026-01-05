@@ -28,6 +28,7 @@ func _init() -> void:
 func _on_slime_authority_changed(peer_id : int, slime_name : String):
 	if peer_id == multiplayer.get_unique_id() && slime_name == slime.name:
 		set_multiplayer_authority.rpc(peer_id)
+		SignalManager.emit_slime_cosmetic_name_update.rpc(slime_name, current_cosmetic_index)
 
 
 func _on_slime_cosmetic_changed(target_slime : Slime, cosmetic_index : int):

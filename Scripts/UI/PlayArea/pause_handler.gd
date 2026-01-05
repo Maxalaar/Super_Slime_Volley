@@ -5,7 +5,7 @@ class_name PauseHandler
 @export var input_selectors_container : Control
 @export var slime_settings_scene : PackedScene
 @export var slime_settings_client_scene : PackedScene
-@export var hide_if_client_list : Array[Control] 
+@export var hide_if_client_list : Array[Control]
 
 
 func _init() -> void:

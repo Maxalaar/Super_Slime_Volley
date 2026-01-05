@@ -68,3 +68,12 @@ func emit_slime_authority_change(peer_id : int, slime_name : String):
 signal slime_cosmetic_change(slime : Slime, cosmetic_index : int)
 func emit_slime_cosmetic_change(slime : Slime, cosmetic_index : int):
 	slime_cosmetic_change.emit(slime, cosmetic_index)
+
+signal slime_cosmetic_name_update(slime_name : String, cosmetic_index : int)
+@rpc("any_peer", "call_local", "reliable")
+func emit_slime_cosmetic_name_update(slime_name : String, cosmetic_index : int):
+	slime_cosmetic_name_update.emit(slime_name, cosmetic_index)
+
+signal time_scale_update()
+func emit_time_scale_update():
+	time_scale_update.emit()

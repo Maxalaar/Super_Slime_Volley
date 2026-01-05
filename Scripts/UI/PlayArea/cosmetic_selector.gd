@@ -7,6 +7,10 @@ class_name CosmeticSelector
 var slime : Slime
 
 
+func _init() -> void:
+	SignalManager.slime_cosmetic_name_update.connect(_on_slime_cosmetic_name_updated)
+
+
 func _ready() -> void:
 	popup_menu.index_pressed.connect(_on_index_pressed)
 
@@ -24,3 +28,8 @@ func _on_index_pressed(index : int):
 	
 	SignalManager.emit_slime_cosmetic_change(slime, index)
 	current_cosmetic_index = index
+
+
+func _on_slime_cosmetic_name_updated(slime_name : String, cosmetic_index : int):
+	if slime_name == slime.name:
+		popup_menu.title = popup_menu.get_item_text(cosmetic_index)
