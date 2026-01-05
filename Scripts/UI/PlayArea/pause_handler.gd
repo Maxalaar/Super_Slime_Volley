@@ -43,5 +43,5 @@ func _on_game_unpaused():
 
 
 func _on_slime_authority_changed(peer_id : int, slime_name : String):
-	if peer_id == multiplayer.get_unique_id():
+	if multiplayer.is_server() == false && peer_id == multiplayer.get_unique_id():
 		create_slime_settings(SlimeManager.instance.name_to_slime[slime_name], slime_settings_client_scene)

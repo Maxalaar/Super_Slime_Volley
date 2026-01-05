@@ -8,10 +8,6 @@ class_name Slime
 @export_range(0, 1) var transparency_minimum : float = 0.1
 @export_range(0, 1) var transparency_maximum : float = 1
 
-@export var behind_slime_pivot : Node2D
-@export var behind_eyes_pivot : Node2D
-@export var in_front_pivot : Node2D
-
 @export_group("Collision Shape")
 @export var collision_shape : CollisionShape2D
 @export var size : float
@@ -35,7 +31,6 @@ var current_ball_touch_number : int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var current_cosmetic : Sprite2D
 
 #region Collision Shape
 #@export_tool_button("Generate Collision Shape") var gen_coll = generate_collision_shape
@@ -203,22 +198,3 @@ func get_ai_information() -> Array:
 		]
 	
 	return information
-
-
-func set_cosmetic(cosmetic_scene : PackedScene):
-	if current_cosmetic != null:
-		current_cosmetic.queue_free()
-	
-	var cosmetic : Cosmetic = cosmetic_scene.instantiate() as Cosmetic
-	current_cosmetic = cosmetic
-	
-	match cosmetic.pivot_type:
-		Cosmetic.PivotType.BehindSlime:
-			behind_slime_pivot.add_child(cosmetic)
-		Cosmetic.PivotType.BehindEyes:
-			behind_eyes_pivot.add_child(cosmetic)
-		Cosmetic.PivotType.InFront:
-			in_front_pivot.add_child(cosmetic)
-
-
-#func set_multiplayer_authority(id : int)

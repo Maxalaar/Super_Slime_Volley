@@ -122,7 +122,7 @@ func spawn_slimes():
 			slime.color = team.color
 
 
-@rpc("authority", "call_local", "reliable")
+#@rpc("authority", "call_local", "reliable")
 func set_ambience(ambience : PackedScene):
 	if current_ambience != null:
 		current_ambience.queue_free()

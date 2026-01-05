@@ -64,3 +64,7 @@ signal slime_authority_change(peer_id : int, slime_name : String)
 @rpc("authority", "call_local", "reliable")
 func emit_slime_authority_change(peer_id : int, slime_name : String):
 	slime_authority_change.emit(peer_id, slime_name)
+
+signal slime_cosmetic_change(slime : Slime, cosmetic_index : int)
+func emit_slime_cosmetic_change(slime : Slime, cosmetic_index : int):
+	slime_cosmetic_change.emit(slime, cosmetic_index)

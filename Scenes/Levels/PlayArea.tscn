@@ -87,7 +87,7 @@ metadata/_custom_type_script = "uid://ct3hnchvwd3vy"
 
 [node name="SlimeManager" type="Node" parent="."]
 script = ExtResource("7_5mb5f")
-cosmetic_scene_list = Array[PackedScene]([ExtResource("8_hf643"), ExtResource("9_sa4x1"), ExtResource("10_2ysal"), ExtResource("11_4bskk"), ExtResource("12_l2f2o"), ExtResource("13_1uat6"), ExtResource("14_7qf4v"), ExtResource("15_3uig6"), ExtResource("16_4pae4"), ExtResource("17_p5nar"), ExtResource("18_l1pl5"), ExtResource("19_dobph"), ExtResource("20_l2f2o"), ExtResource("21_1uat6"), ExtResource("22_7qf4v"), ExtResource("23_3uig6")])
+cosmetic_scene_list = Array[PackedScene]([null, ExtResource("8_hf643"), ExtResource("9_sa4x1"), ExtResource("10_2ysal"), ExtResource("11_4bskk"), ExtResource("12_l2f2o"), ExtResource("13_1uat6"), ExtResource("14_7qf4v"), ExtResource("15_3uig6"), ExtResource("16_4pae4"), ExtResource("17_p5nar"), ExtResource("18_l1pl5"), ExtResource("19_dobph"), ExtResource("20_l2f2o"), ExtResource("21_1uat6"), ExtResource("22_7qf4v"), ExtResource("23_3uig6")])
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_5mlxi")

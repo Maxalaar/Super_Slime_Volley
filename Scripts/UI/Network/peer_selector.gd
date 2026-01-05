@@ -32,7 +32,6 @@ func _on_index_pressed(index : int):
 	var peer_id : int = popup_menu.get_item_text(index).to_int()
 	popup_menu.title = str(peer_id)
 	
-	slime.slime_input_controller.set_multiplayer_authority(peer_id)
 	slime.slime_input_controller.set_multiplayer_authority.rpc(peer_id)
 	SignalManager.emit_slime_authority_change.rpc(peer_id, slime.name)
 
