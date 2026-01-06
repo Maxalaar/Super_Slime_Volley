@@ -140,7 +140,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_ph36x")
 
-[node name="PauseHandler" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pause_panel", "input_selectors_container", "hide_if_client_list")]
+[node name="PauseHandler" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pause_panel", "input_selectors_container", "hide_if_client_list", "ip_address_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,6 +153,7 @@ input_selectors_container = NodePath("PausePanel/InputSelectorsContainer")
 slime_settings_scene = ExtResource("30_3uig6")
 slime_settings_client_scene = ExtResource("31_4pae4")
 hide_if_client_list = [NodePath("PausePanel/AmbienceSelector"), NodePath("PausePanel/VBoxContainer")]
+ip_address_label = NodePath("PausePanel/HBoxContainer/IpAddressLabel")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/PauseHandler"]
 layout_mode = 1
@@ -162,6 +163,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4bskk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="IpAddressLabel" type="Label" parent="CanvasLayer/PauseHandler/PausePanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "IP Address"
+horizontal_alignment = 1
+
+[node name="CopyAddressButton" type="Button" parent="CanvasLayer/PauseHandler/PausePanel/HBoxContainer"]
+layout_mode = 2
+text = "Copy"
 
 [node name="AmbienceSelector" type="HBoxContainer" parent="CanvasLayer/PauseHandler/PausePanel" node_paths=PackedStringArray("popup_menu", "menu_bar")]
 layout_mode = 1
@@ -232,6 +255,7 @@ flip_h = true
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 size_flags_vertical = 1
+min_value = 0.1
 max_value = 2.0
 step = 0.01
 value = 1.0
@@ -268,4 +292,5 @@ layout_mode = 2
 texture = ExtResource("37_p5nar")
 expand_mode = 2
 
+[connection signal="pressed" from="CanvasLayer/PauseHandler/PausePanel/HBoxContainer/CopyAddressButton" to="CanvasLayer/PauseHandler" method="_on_copy_address_button_pressed"]
 [connection signal="delta_synchronized" from="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector/MultiplayerSynchronizer" to="CanvasLayer/PauseHandler/PausePanel/AmbienceSelector" method="_on_ambience_synchronized"]

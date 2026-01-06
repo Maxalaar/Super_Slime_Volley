@@ -6,6 +6,7 @@ class_name PauseHandler
 @export var slime_settings_scene : PackedScene
 @export var slime_settings_client_scene : PackedScene
 @export var hide_if_client_list : Array[Control]
+@export var ip_address_label : Label
 
 
 func _init() -> void:
@@ -26,6 +27,8 @@ func _ready() -> void:
 	if multiplayer.is_server() == false:
 		for control in hide_if_client_list:
 			control.hide()
+	
+	ip_address_label.text = NetworkManager.ip_address
 
 
 func create_slime_settings(slime : Slime, scene : PackedScene):
@@ -45,3 +48,7 @@ func _on_game_unpaused():
 func _on_slime_authority_changed(peer_id : int, slime_name : String):
 	if multiplayer.is_server() == false && peer_id == multiplayer.get_unique_id():
 		create_slime_settings(SlimeManager.instance.name_to_slime[slime_name], slime_settings_client_scene)
+
+
+func _on_copy_address_button_pressed() -> void:
+	DisplayServer.clipboard_set(NetworkManager.ip_address)

@@ -8,7 +8,7 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayer"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer" node_paths=PackedStringArray("ip_address_text_edit")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -20,9 +20,10 @@ offset_right = 56.5
 offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 script = ExtResource("1_mke16")
 play_area_scene = ExtResource("2_koonp")
+ip_address_text_edit = NodePath("VBoxContainer/IpAddressTextEdit")
 
 [node name="SinglePlayerButton" type="Button" parent="CanvasLayer/Buttons"]
 layout_mode = 2
@@ -32,9 +33,18 @@ text = "Single Player"
 layout_mode = 2
 text = "Create Server"
 
-[node name="JoinServerButton" type="Button" parent="CanvasLayer/Buttons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+
+[node name="JoinServerButton" type="Button" parent="CanvasLayer/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Join Server"
+
+[node name="IpAddressTextEdit" type="TextEdit" parent="CanvasLayer/Buttons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Server IP"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/Buttons"]
 layout_mode = 2
@@ -42,5 +52,5 @@ text = "Quit"
 
 [connection signal="pressed" from="CanvasLayer/Buttons/SinglePlayerButton" to="CanvasLayer/Buttons" method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/CreateServerButton" to="CanvasLayer/Buttons" method="_on_create_server_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Buttons/JoinServerButton" to="CanvasLayer/Buttons" method="_on_join_server_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/VBoxContainer/JoinServerButton" to="CanvasLayer/Buttons" method="_on_join_server_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/QuitButton" to="CanvasLayer/Buttons" method="_on_quit_button_pressed"]

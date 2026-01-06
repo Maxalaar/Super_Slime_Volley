@@ -48,9 +48,9 @@ signal server_create_start
 func emit_server_create_start():
 	server_create_start.emit()
 
-signal server_join_start
-func emit_server_join_start():
-	server_join_start.emit()
+signal server_join_start(ip_address : String)
+func emit_server_join_start(ip_address : String):
+	server_join_start.emit(ip_address)
 
 signal slime_spawn(slime : Slime)
 func emit_slime_spawn(slime : Slime):
